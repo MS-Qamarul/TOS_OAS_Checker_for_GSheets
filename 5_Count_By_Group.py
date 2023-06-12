@@ -62,7 +62,7 @@ abs_outstanding_excel_files = [
 ]
 
 # Create a DataFrame to store the counts
-file_counts = pd.DataFrame(columns=['File Name', 'Group', 'Record Count', 'Type', 'Status'])
+file_counts = pd.DataFrame(columns=['File Name', 'Group', 'OAS Count', 'Type', 'Status'])
 
 # Iterate over the Excel files
 for file in scanned_excel_files:
@@ -75,17 +75,17 @@ for file in scanned_excel_files:
     QueryC = df.query(QueryThree, engine = 'python')
     QueryD = df.query(QueryFour, engine = 'python')
 
-    # Get the record count
+    # Get the OAS Count
     CountQueryA = len(QueryA)
     CountQueryB = len(QueryB)
     CountQueryC = len(QueryC)
     CountQueryD = len(QueryD)
 
-    # Store the file name and record count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Group': GroupA, 'Record Count': CountQueryA, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Group': GroupB, 'Record Count': CountQueryB, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Group': GroupC, 'Record Count': CountQueryC, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Group': GroupD, 'Record Count': CountQueryD, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Group': GroupA, 'OAS Count': CountQueryA, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Group': GroupB, 'OAS Count': CountQueryB, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Group': GroupC, 'OAS Count': CountQueryC, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Group': GroupD, 'OAS Count': CountQueryD, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
 
 for file in pending_excel_files:
     # Read the Excel file
@@ -97,17 +97,17 @@ for file in pending_excel_files:
     QueryC = df.query(QueryThree, engine = 'python')
     QueryD = df.query(QueryFour, engine = 'python')
 
-    # Get the record count
+    # Get the OAS Count
     CountQueryA = len(QueryA)
     CountQueryB = len(QueryB)
     CountQueryC = len(QueryC)
     CountQueryD = len(QueryD)
 
-    # Store the file name and record count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Group': GroupA, 'Record Count': CountQueryA, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Group': GroupB, 'Record Count': CountQueryB, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Group': GroupC, 'Record Count': CountQueryC, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Group': GroupD, 'Record Count': CountQueryD, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Group': GroupA, 'OAS Count': CountQueryA, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Group': GroupB, 'OAS Count': CountQueryB, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Group': GroupC, 'OAS Count': CountQueryC, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Group': GroupD, 'OAS Count': CountQueryD, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
 
 for file in outstanding_excel_files:
     # Read the Excel file
@@ -119,47 +119,47 @@ for file in outstanding_excel_files:
     QueryC = df.query(QueryThree, engine = 'python')
     QueryD = df.query(QueryFour, engine = 'python')
 
-    # Get the record count
+    # Get the OAS Count
     CountQueryA = len(QueryA)
     CountQueryB = len(QueryB)
     CountQueryC = len(QueryC)
     CountQueryD = len(QueryD)
 
-    # Store the file name and record count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Group': GroupA, 'Record Count': CountQueryA, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Group': GroupB, 'Record Count': CountQueryB, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Group': GroupC, 'Record Count': CountQueryC, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Group': GroupD, 'Record Count': CountQueryD, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Group': GroupA, 'OAS Count': CountQueryA, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Group': GroupB, 'OAS Count': CountQueryB, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Group': GroupC, 'OAS Count': CountQueryC, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Group': GroupD, 'OAS Count': CountQueryD, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
 
 for file in abs_scanned_excel_files:
     # Read the Excel file
     df = pd.read_excel(file)
 
-    # Get the record count
+    # Get the OAS Count
     record_count = len(df)
 
-    # Store the file name and record count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Group': 'Absentees', 'Record Count': record_count, 'Type': 'Student', 'Status': 'ABS Scanned'}, ignore_index=True)
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Group': 'Absentees', 'OAS Count': record_count, 'Type': 'Student', 'Status': 'ABS Scanned'}, ignore_index=True)
 
 for file in abs_pending_excel_files:
     # Read the Excel file
     df = pd.read_excel(file)
 
-    # Get the record count
+    # Get the OAS Count
     record_count = len(df)
 
-    # Store the file name and record count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Group': 'Absentees', 'Record Count': record_count, 'Type': 'Student', 'Status': 'ABS Pending Conversion'}, ignore_index=True)
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Group': 'Absentees', 'OAS Count': record_count, 'Type': 'Student', 'Status': 'ABS Pending Conversion'}, ignore_index=True)
 
 for file in abs_outstanding_excel_files:
     # Read the Excel file
     df = pd.read_excel(file)
 
-    # Get the record count
+    # Get the OAS Count
     record_count = len(df)
 
-    # Store the file name and record count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Group': 'Absentees', 'Record Count': record_count, 'Type': 'Student', 'Status': 'ABS Outstanding Scan(s)'}, ignore_index=True)
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Group': 'Absentees', 'OAS Count': record_count, 'Type': 'Student', 'Status': 'ABS Outstanding Scan(s)'}, ignore_index=True)
 
 # Write the file counts to a new Excel file
 file_counts.to_excel('z_Count.xlsx', index=False)

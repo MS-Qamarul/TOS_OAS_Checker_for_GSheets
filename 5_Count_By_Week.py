@@ -70,7 +70,7 @@ abs_outstanding_excel_files = [
 ]
 
 # Create a DataFrame to store the counts
-file_counts = pd.DataFrame(columns=['File Name', 'Week', 'Record Count', 'Type', 'Status'])
+file_counts = pd.DataFrame(columns=['File Name', 'Week', 'OAS Count', 'Type', 'Status'])
 
 # Iterate over the Excel files
 for file in scanned_excel_files:
@@ -83,17 +83,17 @@ for file in scanned_excel_files:
     QueryWeekC = df.query(QueryWeekC_df)
     QueryWeekD = df.query(QueryWeekD_df)
 
-    # Get the record count
+    # Get the OAS Count
     CountWeekA = len(QueryWeekA)
     CountWeekB = len(QueryWeekB)
     CountWeekC = len(QueryWeekC)
     CountWeekD = len(QueryWeekD)
 
-    # Store the file name and record count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Week': WeekA, 'Record Count': CountWeekA, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Week': WeekB, 'Record Count': CountWeekB, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Week': WeekC, 'Record Count': CountWeekC, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Week': WeekD, 'Record Count': CountWeekD, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Week': WeekA, 'OAS Count': CountWeekA, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Week': WeekB, 'OAS Count': CountWeekB, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Week': WeekC, 'OAS Count': CountWeekC, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Week': WeekD, 'OAS Count': CountWeekD, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
 
 for file in pending_excel_files:
     # Read the Excel file
@@ -105,17 +105,17 @@ for file in pending_excel_files:
     QueryWeekC = df.query(QueryWeekC_df)
     QueryWeekD = df.query(QueryWeekD_df)
 
-    # Get the record count
+    # Get the OAS Count
     CountWeekA = len(QueryWeekA)
     CountWeekB = len(QueryWeekB)
     CountWeekC = len(QueryWeekC)
     CountWeekD = len(QueryWeekD)
 
-    # Store the file name and record count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Week': WeekA, 'Record Count': CountWeekA, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Week': WeekB, 'Record Count': CountWeekB, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Week': WeekC, 'Record Count': CountWeekC, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Week': WeekD, 'Record Count': CountWeekD, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Week': WeekA, 'OAS Count': CountWeekA, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Week': WeekB, 'OAS Count': CountWeekB, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Week': WeekC, 'OAS Count': CountWeekC, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Week': WeekD, 'OAS Count': CountWeekD, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
 
 for file in outstanding_excel_files:
     # Read the Excel file
@@ -127,47 +127,47 @@ for file in outstanding_excel_files:
     QueryWeekC = df.query(QueryWeekC_df)
     QueryWeekD = df.query(QueryWeekD_df)
 
-    # Get the record count
+    # Get the OAS Count
     CountWeekA = len(QueryWeekA)
     CountWeekB = len(QueryWeekB)
     CountWeekC = len(QueryWeekC)
     CountWeekD = len(QueryWeekD)
 
-    # Store the file name and record count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Week': WeekA, 'Record Count': CountWeekA, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Week': WeekB, 'Record Count': CountWeekB, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Week': WeekC, 'Record Count': CountWeekC, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Week': WeekD, 'Record Count': CountWeekD, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Week': WeekA, 'OAS Count': CountWeekA, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Week': WeekB, 'OAS Count': CountWeekB, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Week': WeekC, 'OAS Count': CountWeekC, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Week': WeekD, 'OAS Count': CountWeekD, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
 
 for file in abs_scanned_excel_files:
     # Read the Excel file
     df = pd.read_excel(file)
 
-    # Get the record count
+    # Get the OAS Count
     record_count = len(df)
 
-    # Store the file name and record count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Week': 'NIL', 'Record Count': record_count, 'Type': 'Student', 'Status': 'ABS Scanned'}, ignore_index=True)
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Week': 'NIL', 'OAS Count': record_count, 'Type': 'Student', 'Status': 'ABS Scanned'}, ignore_index=True)
 
 for file in abs_pending_excel_files:
     # Read the Excel file
     df = pd.read_excel(file)
 
-    # Get the record count
+    # Get the OAS Count
     record_count = len(df)
 
-    # Store the file name and record count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Week': 'NIL', 'Record Count': record_count, 'Type': 'Student', 'Status': 'ABS Pending Conversion'}, ignore_index=True)
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Week': 'NIL', 'OAS Count': record_count, 'Type': 'Student', 'Status': 'ABS Pending Conversion'}, ignore_index=True)
 
 for file in abs_outstanding_excel_files:
     # Read the Excel file
     df = pd.read_excel(file)
 
-    # Get the record count
+    # Get the OAS Count
     record_count = len(df)
 
-    # Store the file name and record count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Week': 'NIL', 'Record Count': record_count, 'Type': 'Student', 'Status': 'ABS Outstanding Scan(s)'}, ignore_index=True)
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Week': 'NIL', 'OAS Count': record_count, 'Type': 'Student', 'Status': 'ABS Outstanding Scan(s)'}, ignore_index=True)
 
 # Write the file counts to a new Excel file
 file_counts.to_excel('z_Count.xlsx', index=False)
