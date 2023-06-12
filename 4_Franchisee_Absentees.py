@@ -11,7 +11,8 @@ logging.basicConfig(filename="log.txt", level=logging.DEBUG, format="%(asctime)s
 logging.info("Running 4_Franchisee_Absentees.py...")
 
 # Read from Google Sheets without API
-spreadsheetId = "1lw7_4ljAj8sezRDqsX4j7IzEhqb_XmgkR6oyaI8jPVw" # Spreadsheet ID to change every QCP period, current example for AY2023-SA1
+# QCP2 1Eob55-5hqyjRB49iJQe-1xuZtWTcu9TKm3ivkpSd_Vw / SA1 1lw7_4ljAj8sezRDqsX4j7IzEhqb_XmgkR6oyaI8jPVw
+spreadsheetId = "1Eob55-5hqyjRB49iJQe-1xuZtWTcu9TKm3ivkpSd_Vw" # Spreadsheet ID to change every QCP period, current example for AY2023-SA1
 url = "https://docs.google.com/spreadsheets/export?exportFormat=xlsx&id=" + spreadsheetId
 res = requests.get(url)
 data = BytesIO(res.content)
