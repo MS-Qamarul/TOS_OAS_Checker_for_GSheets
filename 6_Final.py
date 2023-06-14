@@ -12,7 +12,13 @@ Group2 = "S1-3 Chinese (Week 31-32)"
 Group3 = "P3-5 Courses (Week 34-35)"
 Group4 = "S1-3 Sciences (Week 33-34)"
 
+# Types
+Type0 = "Absentee"
+Type1 = "Class"
+Type2 = "Students"
+
 # List of MS Centres
+GroupABS = "ABS"
 GroupA = "Balmoral"
 GroupB = "Bishan"
 GroupC = "Bukit Batok Central"
@@ -34,7 +40,7 @@ GroupR = "Sembawang"
 GroupS = "Simei"
 GroupT = "West Campus"
 GroupU = "Woodlands Central"
-GroupV = "Woodleigh"
+GroupV = "PO"
 GroupW = "Yishun"
 # Add more if needed
 
@@ -60,7 +66,7 @@ QueryR = '`Class: Class Code`.str.contains("SW2023-P6") or `Class: Class Code`.s
 QueryS = '`Class: Class Code`.str.contains("SME2023-P6") or `Class: Class Code`.str.contains("SME2023-OL")'
 QueryT = '`Class: Class Code`.str.contains("WC2023-P6") or `Class: Class Code`.str.contains("WC2023-OL")'
 QueryU = '`Class: Class Code`.str.contains("WLC2023-P6") or `Class: Class Code`.str.contains("WLC2023-OL")'
-QueryV = '`Class: Class Code`.str.contains("WLH2023-P6") or `Class: Class Code`.str.contains("WLH023-OL")'
+QueryV = '`Class: Class Code`.str.contains("ED2023-P6") or `Class: Class Code`.str.contains("ED2023-OL")'
 QueryW = '`Class: Class Code`.str.contains("YS2023-P6") or `Class: Class Code`.str.contains("YS2023-OL")'
 # Add more if needed
 
@@ -86,7 +92,7 @@ QueryRR = '`Class: Class Code`.str.contains("SW2023-S1C") or `Class: Class Code`
 QuerySS = '`Class: Class Code`.str.contains("SME2023-S1C") or `Class: Class Code`.str.contains("SME2023-S2C") or `Class: Class Code`.str.contains("SME2023-S3C")'
 QueryTT = '`Class: Class Code`.str.contains("WC2023-S1C") or `Class: Class Code`.str.contains("WC2023-S2C") or `Class: Class Code`.str.contains("WC2023-S3C")'
 QueryUU = '`Class: Class Code`.str.contains("WLC2023-S1C") or `Class: Class Code`.str.contains("WLC2023-S2C") or `Class: Class Code`.str.contains("WLC2023-S3C")'
-QueryVV = '`Class: Class Code`.str.contains("WLH2023-S1C") or `Class: Class Code`.str.contains("WLH023-S2C") or `Class: Class Code`.str.contains("WLH2023-S3C")'
+QueryVV = '`Class: Class Code`.str.contains("ED2023-S1C") or `Class: Class Code`.str.contains("ED2023-S2C") or `Class: Class Code`.str.contains("ED2023-S3C")'
 QueryWW = '`Class: Class Code`.str.contains("YS2023-S1C") or `Class: Class Code`.str.contains("YS2023-S2C") or `Class: Class Code`.str.contains("YS2023-S3C")'
 # Add more if needed
 
@@ -112,7 +118,7 @@ QueryRRR = '`Class: Class Code`.str.contains("SW2023-P3") or `Class: Class Code`
 QuerySSS = '`Class: Class Code`.str.contains("SME2023-P3") or `Class: Class Code`.str.contains("SME2023-P4") or `Class: Class Code`.str.contains("SME2023-P5")'
 QueryTTT = '`Class: Class Code`.str.contains("WC2023-P3") or `Class: Class Code`.str.contains("WC2023-P4") or `Class: Class Code`.str.contains("WC2023-P5")'
 QueryUUU = '`Class: Class Code`.str.contains("WLC2023-P3") or `Class: Class Code`.str.contains("WLC2023-P4") or `Class: Class Code`.str.contains("WLC2023-P5")'
-QueryVVV = '`Class: Class Code`.str.contains("WLH2023-P3") or `Class: Class Code`.str.contains("WLH023-P4") or `Class: Class Code`.str.contains("WLH2023-P5")'
+QueryVVV = '`Class: Class Code`.str.contains("ED2023-P3") or `Class: Class Code`.str.contains("ED2023-P4") or `Class: Class Code`.str.contains("ED2023-P5")'
 QueryWWW = '`Class: Class Code`.str.contains("YS2023-P3") or `Class: Class Code`.str.contains("YS2023-P4") or `Class: Class Code`.str.contains("YS2023-P5")'
 # Add more if needed
 
@@ -138,7 +144,7 @@ QueryRRRR = '`Class: Class Code`.str.contains("SW2023-S1S") or `Class: Class Cod
 QuerySSSS = '`Class: Class Code`.str.contains("SME2023-S1S") or `Class: Class Code`.str.contains("SME2023-S2S") or `Class: Class Code`.str.contains("SME2023-S3S")'
 QueryTTTT = '`Class: Class Code`.str.contains("WC2023-S1S") or `Class: Class Code`.str.contains("WC2023-S2S") or `Class: Class Code`.str.contains("WC2023-S3S")'
 QueryUUUU = '`Class: Class Code`.str.contains("WLC2023-S1S") or `Class: Class Code`.str.contains("WLC2023-S2S") or `Class: Class Code`.str.contains("WLC2023-S3S")'
-QueryVVVV = '`Class: Class Code`.str.contains("WLH2023-S1S") or `Class: Class Code`.str.contains("WLH023-S2S") or `Class: Class Code`.str.contains("WLH2023-S3S")'
+QueryVVVV = '`Class: Class Code`.str.contains("ED2023-S1S") or `Class: Class Code`.str.contains("ED2023-S2S") or `Class: Class Code`.str.contains("ED2023-S3S")'
 QueryWWWW = '`Class: Class Code`.str.contains("YS2023-S1S") or `Class: Class Code`.str.contains("YS2023-S2S") or `Class: Class Code`.str.contains("YS2023-S3S")'
 # Add more if needed
 
@@ -156,16 +162,34 @@ except:
 scanned_excel_files = [
     'Scanned OAS Franchisee.xlsx',
     'Scanned OAS Franchisor.xlsx',
+    'PO Scanned OAS.xlsx',
 ]
 
 pending_excel_files = [
     'Pending Conversion Franchisee.xlsx',
     'Pending Conversion Franchisor.xlsx',
+    'PO Pending Conversion.xlsx',
 ]
 
 outstanding_excel_files = [
     'Outstanding Scans Franchisee.xlsx',
     'Outstanding Scans Franchisor.xlsx',
+    'PO Outstanding Scans.xlsx',
+]
+
+abs_scanned_excel_files = [
+    'ABS Scanned Franchisee.xlsx',
+    'ABS Scanned Franchisor.xlsx',
+]
+
+abs_pending_excel_files = [
+    'ABS Pending Conversion Franchisee.xlsx',
+    'ABS Pending Conversion Franchisor.xlsx',
+]
+
+abs_outstanding_excel_files = [
+    'ABS Outstanding Scans Franchisee.xlsx',
+    'ABS Outstanding Scans Franchisor.xlsx',
 ]
 
 # Create a DataFrame to store the counts
@@ -377,104 +401,104 @@ for file in scanned_excel_files:
     CountQueryWWWW = len(Query23C)
 
     # Store the file name and OAS Count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group1, 'OAS Count': CountQueryA, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group1, 'OAS Count': CountQueryB, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group1, 'OAS Count': CountQueryC, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group1, 'OAS Count': CountQueryD, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group1, 'OAS Count': CountQueryE, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group1, 'OAS Count': CountQueryF, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group1, 'OAS Count': CountQueryG, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group1, 'OAS Count': CountQueryH, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group1, 'OAS Count': CountQueryI, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group1, 'OAS Count': CountQueryJ, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group1, 'OAS Count': CountQueryK, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group1, 'OAS Count': CountQueryL, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group1, 'OAS Count': CountQueryM, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group1, 'OAS Count': CountQueryN, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group1, 'OAS Count': CountQueryO, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group1, 'OAS Count': CountQueryP, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group1, 'OAS Count': CountQueryQ, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group1, 'OAS Count': CountQueryR, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group1, 'OAS Count': CountQueryS, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group1, 'OAS Count': CountQueryT, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group1, 'OAS Count': CountQueryU, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    # file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group1, 'OAS Count': CountQueryV, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group1, 'OAS Count': CountQueryW, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group1, 'OAS Count': CountQueryA, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group1, 'OAS Count': CountQueryB, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group1, 'OAS Count': CountQueryC, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group1, 'OAS Count': CountQueryD, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group1, 'OAS Count': CountQueryE, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group1, 'OAS Count': CountQueryF, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group1, 'OAS Count': CountQueryG, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group1, 'OAS Count': CountQueryH, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group1, 'OAS Count': CountQueryI, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group1, 'OAS Count': CountQueryJ, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group1, 'OAS Count': CountQueryK, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group1, 'OAS Count': CountQueryL, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group1, 'OAS Count': CountQueryM, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group1, 'OAS Count': CountQueryN, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group1, 'OAS Count': CountQueryO, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group1, 'OAS Count': CountQueryP, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group1, 'OAS Count': CountQueryQ, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group1, 'OAS Count': CountQueryR, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group1, 'OAS Count': CountQueryS, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group1, 'OAS Count': CountQueryT, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group1, 'OAS Count': CountQueryU, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group1, 'OAS Count': CountQueryV, 'Type': Type2, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group1, 'OAS Count': CountQueryW, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group2, 'OAS Count': CountQueryAA, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group2, 'OAS Count': CountQueryBB, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group2, 'OAS Count': CountQueryCC, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group2, 'OAS Count': CountQueryDD, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group2, 'OAS Count': CountQueryEE, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group2, 'OAS Count': CountQueryFF, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group2, 'OAS Count': CountQueryGG, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group2, 'OAS Count': CountQueryHH, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group2, 'OAS Count': CountQueryII, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group2, 'OAS Count': CountQueryJJ, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group2, 'OAS Count': CountQueryKK, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group2, 'OAS Count': CountQueryLL, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group2, 'OAS Count': CountQueryMM, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group2, 'OAS Count': CountQueryNN, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group2, 'OAS Count': CountQueryOO, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group2, 'OAS Count': CountQueryPP, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group2, 'OAS Count': CountQueryQQ, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group2, 'OAS Count': CountQueryRR, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group2, 'OAS Count': CountQuerySS, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group2, 'OAS Count': CountQueryTT, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group2, 'OAS Count': CountQueryUU, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    # file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group2, 'OAS Count': CountQuerVyV, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group2, 'OAS Count': CountQueryWW, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group2, 'OAS Count': CountQueryAA, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group2, 'OAS Count': CountQueryBB, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group2, 'OAS Count': CountQueryCC, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group2, 'OAS Count': CountQueryDD, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group2, 'OAS Count': CountQueryEE, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group2, 'OAS Count': CountQueryFF, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group2, 'OAS Count': CountQueryGG, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group2, 'OAS Count': CountQueryHH, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group2, 'OAS Count': CountQueryII, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group2, 'OAS Count': CountQueryJJ, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group2, 'OAS Count': CountQueryKK, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group2, 'OAS Count': CountQueryLL, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group2, 'OAS Count': CountQueryMM, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group2, 'OAS Count': CountQueryNN, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group2, 'OAS Count': CountQueryOO, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group2, 'OAS Count': CountQueryPP, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group2, 'OAS Count': CountQueryQQ, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group2, 'OAS Count': CountQueryRR, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group2, 'OAS Count': CountQuerySS, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group2, 'OAS Count': CountQueryTT, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group2, 'OAS Count': CountQueryUU, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group2, 'OAS Count': CountQueryVV, 'Type': Type2, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group2, 'OAS Count': CountQueryWW, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group3, 'OAS Count': CountQueryAAA, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group3, 'OAS Count': CountQueryBBB, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group3, 'OAS Count': CountQueryCCC, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group3, 'OAS Count': CountQueryDDD, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group3, 'OAS Count': CountQueryEEE, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group3, 'OAS Count': CountQueryFFF, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group3, 'OAS Count': CountQueryGGG, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group3, 'OAS Count': CountQueryHHH, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group3, 'OAS Count': CountQueryIII, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group3, 'OAS Count': CountQueryJJJ, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group3, 'OAS Count': CountQueryKKK, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group3, 'OAS Count': CountQueryLLL, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group3, 'OAS Count': CountQueryMMM, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group3, 'OAS Count': CountQueryNNN, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group3, 'OAS Count': CountQueryOOO, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group3, 'OAS Count': CountQueryPPP, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group3, 'OAS Count': CountQueryQQQ, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group3, 'OAS Count': CountQueryRRR, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group3, 'OAS Count': CountQuerySSS, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group3, 'OAS Count': CountQueryTTT, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group3, 'OAS Count': CountQueryUUU, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    # file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group3, 'OAS Count': CountQueryVVV, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group3, 'OAS Count': CountQueryWWW, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group3, 'OAS Count': CountQueryAAA, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group3, 'OAS Count': CountQueryBBB, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group3, 'OAS Count': CountQueryCCC, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group3, 'OAS Count': CountQueryDDD, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group3, 'OAS Count': CountQueryEEE, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group3, 'OAS Count': CountQueryFFF, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group3, 'OAS Count': CountQueryGGG, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group3, 'OAS Count': CountQueryHHH, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group3, 'OAS Count': CountQueryIII, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group3, 'OAS Count': CountQueryJJJ, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group3, 'OAS Count': CountQueryKKK, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group3, 'OAS Count': CountQueryLLL, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group3, 'OAS Count': CountQueryMMM, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group3, 'OAS Count': CountQueryNNN, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group3, 'OAS Count': CountQueryOOO, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group3, 'OAS Count': CountQueryPPP, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group3, 'OAS Count': CountQueryQQQ, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group3, 'OAS Count': CountQueryRRR, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group3, 'OAS Count': CountQuerySSS, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group3, 'OAS Count': CountQueryTTT, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group3, 'OAS Count': CountQueryUUU, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group3, 'OAS Count': CountQueryVVV, 'Type': Type2, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group3, 'OAS Count': CountQueryWWW, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group4, 'OAS Count': CountQueryAAAA, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group4, 'OAS Count': CountQueryBBBB, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group4, 'OAS Count': CountQueryCCCC, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group4, 'OAS Count': CountQueryDDDD, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group4, 'OAS Count': CountQueryEEEE, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group4, 'OAS Count': CountQueryFFFF, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group4, 'OAS Count': CountQueryGGGG, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group4, 'OAS Count': CountQueryHHHH, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group4, 'OAS Count': CountQueryIIII, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group4, 'OAS Count': CountQueryJJJJ, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group4, 'OAS Count': CountQueryKKKK, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group4, 'OAS Count': CountQueryLLLL, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group4, 'OAS Count': CountQueryMMMM, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group4, 'OAS Count': CountQueryNNNN, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group4, 'OAS Count': CountQueryOOOO, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group4, 'OAS Count': CountQueryPPPP, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group4, 'OAS Count': CountQueryQQQQ, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group4, 'OAS Count': CountQueryRRRR, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group4, 'OAS Count': CountQuerySSSS, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group4, 'OAS Count': CountQueryTTTT, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group4, 'OAS Count': CountQueryUUUU, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    # file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group4, 'OAS Count': CountQueryVVVV, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group4, 'OAS Count': CountQueryWWWW, 'Type': 'Class', 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group4, 'OAS Count': CountQueryAAAA, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group4, 'OAS Count': CountQueryBBBB, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group4, 'OAS Count': CountQueryCCCC, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group4, 'OAS Count': CountQueryDDDD, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group4, 'OAS Count': CountQueryEEEE, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group4, 'OAS Count': CountQueryFFFF, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group4, 'OAS Count': CountQueryGGGG, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group4, 'OAS Count': CountQueryHHHH, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group4, 'OAS Count': CountQueryIIII, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group4, 'OAS Count': CountQueryJJJJ, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group4, 'OAS Count': CountQueryKKKK, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group4, 'OAS Count': CountQueryLLLL, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group4, 'OAS Count': CountQueryMMMM, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group4, 'OAS Count': CountQueryNNNN, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group4, 'OAS Count': CountQueryOOOO, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group4, 'OAS Count': CountQueryPPPP, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group4, 'OAS Count': CountQueryQQQQ, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group4, 'OAS Count': CountQueryRRRR, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group4, 'OAS Count': CountQuerySSSS, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group4, 'OAS Count': CountQueryTTTT, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group4, 'OAS Count': CountQueryUUUU, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group4, 'OAS Count': CountQueryVVVV, 'Type': Type2, 'Status': 'Scanned'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group4, 'OAS Count': CountQueryWWWW, 'Type': Type1, 'Status': 'Scanned'}, ignore_index=True)
 
 for file in pending_excel_files:
     # Read the Excel file
@@ -681,104 +705,104 @@ for file in pending_excel_files:
     CountQueryWWWW = len(Query23C)
 
     # Store the file name and OAS Count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group1, 'OAS Count': CountQueryA, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group1, 'OAS Count': CountQueryB, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group1, 'OAS Count': CountQueryC, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group1, 'OAS Count': CountQueryD, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group1, 'OAS Count': CountQueryE, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group1, 'OAS Count': CountQueryF, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group1, 'OAS Count': CountQueryG, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group1, 'OAS Count': CountQueryH, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group1, 'OAS Count': CountQueryI, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group1, 'OAS Count': CountQueryJ, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group1, 'OAS Count': CountQueryK, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group1, 'OAS Count': CountQueryL, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group1, 'OAS Count': CountQueryM, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group1, 'OAS Count': CountQueryN, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group1, 'OAS Count': CountQueryO, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group1, 'OAS Count': CountQueryP, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group1, 'OAS Count': CountQueryQ, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group1, 'OAS Count': CountQueryR, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group1, 'OAS Count': CountQueryS, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group1, 'OAS Count': CountQueryT, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group1, 'OAS Count': CountQueryU, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    # file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group1, 'OAS Count': CountQueryV, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group1, 'OAS Count': CountQueryW, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group1, 'OAS Count': CountQueryA, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group1, 'OAS Count': CountQueryB, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group1, 'OAS Count': CountQueryC, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group1, 'OAS Count': CountQueryD, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group1, 'OAS Count': CountQueryE, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group1, 'OAS Count': CountQueryF, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group1, 'OAS Count': CountQueryG, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group1, 'OAS Count': CountQueryH, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group1, 'OAS Count': CountQueryI, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group1, 'OAS Count': CountQueryJ, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group1, 'OAS Count': CountQueryK, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group1, 'OAS Count': CountQueryL, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group1, 'OAS Count': CountQueryM, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group1, 'OAS Count': CountQueryN, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group1, 'OAS Count': CountQueryO, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group1, 'OAS Count': CountQueryP, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group1, 'OAS Count': CountQueryQ, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group1, 'OAS Count': CountQueryR, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group1, 'OAS Count': CountQueryS, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group1, 'OAS Count': CountQueryT, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group1, 'OAS Count': CountQueryU, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group1, 'OAS Count': CountQueryV, 'Type': Type2, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group1, 'OAS Count': CountQueryW, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group2, 'OAS Count': CountQueryAA, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group2, 'OAS Count': CountQueryBB, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group2, 'OAS Count': CountQueryCC, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group2, 'OAS Count': CountQueryDD, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group2, 'OAS Count': CountQueryEE, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group2, 'OAS Count': CountQueryFF, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group2, 'OAS Count': CountQueryGG, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group2, 'OAS Count': CountQueryHH, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group2, 'OAS Count': CountQueryII, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group2, 'OAS Count': CountQueryJJ, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group2, 'OAS Count': CountQueryKK, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group2, 'OAS Count': CountQueryLL, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group2, 'OAS Count': CountQueryMM, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group2, 'OAS Count': CountQueryNN, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group2, 'OAS Count': CountQueryOO, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group2, 'OAS Count': CountQueryPP, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group2, 'OAS Count': CountQueryQQ, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group2, 'OAS Count': CountQueryRR, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group2, 'OAS Count': CountQuerySS, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group2, 'OAS Count': CountQueryTT, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group2, 'OAS Count': CountQueryUU, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    # file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group2, 'OAS Count': CountQueryVV, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group2, 'OAS Count': CountQueryWW, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group2, 'OAS Count': CountQueryAA, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group2, 'OAS Count': CountQueryBB, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group2, 'OAS Count': CountQueryCC, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group2, 'OAS Count': CountQueryDD, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group2, 'OAS Count': CountQueryEE, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group2, 'OAS Count': CountQueryFF, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group2, 'OAS Count': CountQueryGG, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group2, 'OAS Count': CountQueryHH, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group2, 'OAS Count': CountQueryII, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group2, 'OAS Count': CountQueryJJ, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group2, 'OAS Count': CountQueryKK, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group2, 'OAS Count': CountQueryLL, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group2, 'OAS Count': CountQueryMM, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group2, 'OAS Count': CountQueryNN, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group2, 'OAS Count': CountQueryOO, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group2, 'OAS Count': CountQueryPP, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group2, 'OAS Count': CountQueryQQ, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group2, 'OAS Count': CountQueryRR, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group2, 'OAS Count': CountQuerySS, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group2, 'OAS Count': CountQueryTT, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group2, 'OAS Count': CountQueryUU, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group2, 'OAS Count': CountQueryVV, 'Type': Type2, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group2, 'OAS Count': CountQueryWW, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group3, 'OAS Count': CountQueryAAA, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group3, 'OAS Count': CountQueryBBB, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group3, 'OAS Count': CountQueryCCC, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group3, 'OAS Count': CountQueryDDD, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group3, 'OAS Count': CountQueryEEE, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group3, 'OAS Count': CountQueryFFF, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group3, 'OAS Count': CountQueryGGG, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group3, 'OAS Count': CountQueryHHH, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group3, 'OAS Count': CountQueryIII, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group3, 'OAS Count': CountQueryJJJ, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group3, 'OAS Count': CountQueryKKK, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group3, 'OAS Count': CountQueryLLL, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group3, 'OAS Count': CountQueryMMM, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group3, 'OAS Count': CountQueryNNN, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group3, 'OAS Count': CountQueryOOO, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group3, 'OAS Count': CountQueryPPP, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group3, 'OAS Count': CountQueryQQQ, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group3, 'OAS Count': CountQueryRRR, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group3, 'OAS Count': CountQuerySSS, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group3, 'OAS Count': CountQueryTTT, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group3, 'OAS Count': CountQueryUUU, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    # file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group3, 'OAS Count': CountQueryVVV, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group3, 'OAS Count': CountQueryWWW, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group3, 'OAS Count': CountQueryAAA, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group3, 'OAS Count': CountQueryBBB, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group3, 'OAS Count': CountQueryCCC, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group3, 'OAS Count': CountQueryDDD, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group3, 'OAS Count': CountQueryEEE, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group3, 'OAS Count': CountQueryFFF, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group3, 'OAS Count': CountQueryGGG, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group3, 'OAS Count': CountQueryHHH, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group3, 'OAS Count': CountQueryIII, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group3, 'OAS Count': CountQueryJJJ, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group3, 'OAS Count': CountQueryKKK, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group3, 'OAS Count': CountQueryLLL, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group3, 'OAS Count': CountQueryMMM, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group3, 'OAS Count': CountQueryNNN, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group3, 'OAS Count': CountQueryOOO, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group3, 'OAS Count': CountQueryPPP, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group3, 'OAS Count': CountQueryQQQ, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group3, 'OAS Count': CountQueryRRR, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group3, 'OAS Count': CountQuerySSS, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group3, 'OAS Count': CountQueryTTT, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group3, 'OAS Count': CountQueryUUU, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group3, 'OAS Count': CountQueryVVV, 'Type': Type2, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group3, 'OAS Count': CountQueryWWW, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group4, 'OAS Count': CountQueryAAAA, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group4, 'OAS Count': CountQueryBBBB, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group4, 'OAS Count': CountQueryCCCC, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group4, 'OAS Count': CountQueryDDDD, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group4, 'OAS Count': CountQueryEEEE, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group4, 'OAS Count': CountQueryFFFF, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group4, 'OAS Count': CountQueryGGGG, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group4, 'OAS Count': CountQueryHHHH, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group4, 'OAS Count': CountQueryIIII, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group4, 'OAS Count': CountQueryJJJJ, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group4, 'OAS Count': CountQueryKKKK, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group4, 'OAS Count': CountQueryLLLL, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group4, 'OAS Count': CountQueryMMMM, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group4, 'OAS Count': CountQueryNNNN, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group4, 'OAS Count': CountQueryOOOO, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group4, 'OAS Count': CountQueryPPPP, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group4, 'OAS Count': CountQueryQQQQ, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group4, 'OAS Count': CountQueryRRRR, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group4, 'OAS Count': CountQuerySSSS, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group4, 'OAS Count': CountQueryTTTT, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group4, 'OAS Count': CountQueryUUUU, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    # file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group4, 'OAS Count': CountQueryVVVV, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group4, 'OAS Count': CountQueryWWWW, 'Type': 'Class', 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group4, 'OAS Count': CountQueryAAAA, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group4, 'OAS Count': CountQueryBBBB, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group4, 'OAS Count': CountQueryCCCC, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group4, 'OAS Count': CountQueryDDDD, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group4, 'OAS Count': CountQueryEEEE, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group4, 'OAS Count': CountQueryFFFF, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group4, 'OAS Count': CountQueryGGGG, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group4, 'OAS Count': CountQueryHHHH, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group4, 'OAS Count': CountQueryIIII, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group4, 'OAS Count': CountQueryJJJJ, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group4, 'OAS Count': CountQueryKKKK, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group4, 'OAS Count': CountQueryLLLL, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group4, 'OAS Count': CountQueryMMMM, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group4, 'OAS Count': CountQueryNNNN, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group4, 'OAS Count': CountQueryOOOO, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group4, 'OAS Count': CountQueryPPPP, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group4, 'OAS Count': CountQueryQQQQ, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group4, 'OAS Count': CountQueryRRRR, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group4, 'OAS Count': CountQuerySSSS, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group4, 'OAS Count': CountQueryTTTT, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group4, 'OAS Count': CountQueryUUUU, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group4, 'OAS Count': CountQueryVVVV, 'Type': Type2, 'Status': 'Pending Conversion'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group4, 'OAS Count': CountQueryWWWW, 'Type': Type1, 'Status': 'Pending Conversion'}, ignore_index=True)
 
 for file in outstanding_excel_files:
     # Read the Excel file
@@ -985,104 +1009,134 @@ for file in outstanding_excel_files:
     CountQueryWWWW = len(Query23C)
 
     # Store the file name and OAS Count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group1, 'OAS Count': CountQueryA, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group1, 'OAS Count': CountQueryB, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group1, 'OAS Count': CountQueryC, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group1, 'OAS Count': CountQueryD, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group1, 'OAS Count': CountQueryE, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group1, 'OAS Count': CountQueryF, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group1, 'OAS Count': CountQueryG, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group1, 'OAS Count': CountQueryH, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group1, 'OAS Count': CountQueryI, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group1, 'OAS Count': CountQueryJ, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group1, 'OAS Count': CountQueryK, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group1, 'OAS Count': CountQueryL, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group1, 'OAS Count': CountQueryM, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group1, 'OAS Count': CountQueryN, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group1, 'OAS Count': CountQueryO, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group1, 'OAS Count': CountQueryP, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group1, 'OAS Count': CountQueryQ, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group1, 'OAS Count': CountQueryR, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group1, 'OAS Count': CountQueryS, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group1, 'OAS Count': CountQueryT, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group1, 'OAS Count': CountQueryU, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    # file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group1, 'OAS Count': CountQueryV, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group1, 'OAS Count': CountQueryW, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group1, 'OAS Count': CountQueryA, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group1, 'OAS Count': CountQueryB, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group1, 'OAS Count': CountQueryC, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group1, 'OAS Count': CountQueryD, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group1, 'OAS Count': CountQueryE, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group1, 'OAS Count': CountQueryF, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group1, 'OAS Count': CountQueryG, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group1, 'OAS Count': CountQueryH, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group1, 'OAS Count': CountQueryI, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group1, 'OAS Count': CountQueryJ, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group1, 'OAS Count': CountQueryK, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group1, 'OAS Count': CountQueryL, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group1, 'OAS Count': CountQueryM, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group1, 'OAS Count': CountQueryN, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group1, 'OAS Count': CountQueryO, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group1, 'OAS Count': CountQueryP, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group1, 'OAS Count': CountQueryQ, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group1, 'OAS Count': CountQueryR, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group1, 'OAS Count': CountQueryS, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group1, 'OAS Count': CountQueryT, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group1, 'OAS Count': CountQueryU, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group1, 'OAS Count': CountQueryV, 'Type': Type2, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group1, 'OAS Count': CountQueryW, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group2, 'OAS Count': CountQueryAA, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group2, 'OAS Count': CountQueryBB, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group2, 'OAS Count': CountQueryCC, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group2, 'OAS Count': CountQueryDD, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group2, 'OAS Count': CountQueryEE, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group2, 'OAS Count': CountQueryFF, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group2, 'OAS Count': CountQueryGG, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group2, 'OAS Count': CountQueryHH, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group2, 'OAS Count': CountQueryII, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group2, 'OAS Count': CountQueryJJ, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group2, 'OAS Count': CountQueryKK, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group2, 'OAS Count': CountQueryLL, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group2, 'OAS Count': CountQueryMM, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group2, 'OAS Count': CountQueryNN, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group2, 'OAS Count': CountQueryOO, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group2, 'OAS Count': CountQueryPP, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group2, 'OAS Count': CountQueryQQ, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group2, 'OAS Count': CountQueryRR, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group2, 'OAS Count': CountQuerySS, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group2, 'OAS Count': CountQueryTT, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group2, 'OAS Count': CountQueryUU, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    # file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group2, 'OAS Count': CountQueryVV, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group2, 'OAS Count': CountQueryWW, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group2, 'OAS Count': CountQueryAA, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group2, 'OAS Count': CountQueryBB, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group2, 'OAS Count': CountQueryCC, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group2, 'OAS Count': CountQueryDD, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group2, 'OAS Count': CountQueryEE, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group2, 'OAS Count': CountQueryFF, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group2, 'OAS Count': CountQueryGG, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group2, 'OAS Count': CountQueryHH, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group2, 'OAS Count': CountQueryII, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group2, 'OAS Count': CountQueryJJ, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group2, 'OAS Count': CountQueryKK, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group2, 'OAS Count': CountQueryLL, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group2, 'OAS Count': CountQueryMM, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group2, 'OAS Count': CountQueryNN, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group2, 'OAS Count': CountQueryOO, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group2, 'OAS Count': CountQueryPP, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group2, 'OAS Count': CountQueryQQ, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group2, 'OAS Count': CountQueryRR, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group2, 'OAS Count': CountQuerySS, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group2, 'OAS Count': CountQueryTT, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group2, 'OAS Count': CountQueryUU, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group2, 'OAS Count': CountQueryVV, 'Type': Type2, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group2, 'OAS Count': CountQueryWW, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group3, 'OAS Count': CountQueryAAA, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group3, 'OAS Count': CountQueryBBB, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group3, 'OAS Count': CountQueryCCC, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group3, 'OAS Count': CountQueryDDD, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group3, 'OAS Count': CountQueryEEE, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group3, 'OAS Count': CountQueryFFF, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group3, 'OAS Count': CountQueryGGG, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group3, 'OAS Count': CountQueryHHH, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group3, 'OAS Count': CountQueryIII, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group3, 'OAS Count': CountQueryJJJ, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group3, 'OAS Count': CountQueryKKK, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group3, 'OAS Count': CountQueryLLL, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group3, 'OAS Count': CountQueryMMM, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group3, 'OAS Count': CountQueryNNN, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group3, 'OAS Count': CountQueryOOO, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group3, 'OAS Count': CountQueryPPP, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group3, 'OAS Count': CountQueryQQQ, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group3, 'OAS Count': CountQueryRRR, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group3, 'OAS Count': CountQuerySSS, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group3, 'OAS Count': CountQueryTTT, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group3, 'OAS Count': CountQueryUUU, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    # file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group3, 'OAS Count': CountQueryVVV, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group3, 'OAS Count': CountQueryWWW, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group3, 'OAS Count': CountQueryAAA, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group3, 'OAS Count': CountQueryBBB, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group3, 'OAS Count': CountQueryCCC, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group3, 'OAS Count': CountQueryDDD, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group3, 'OAS Count': CountQueryEEE, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group3, 'OAS Count': CountQueryFFF, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group3, 'OAS Count': CountQueryGGG, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group3, 'OAS Count': CountQueryHHH, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group3, 'OAS Count': CountQueryIII, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group3, 'OAS Count': CountQueryJJJ, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group3, 'OAS Count': CountQueryKKK, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group3, 'OAS Count': CountQueryLLL, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group3, 'OAS Count': CountQueryMMM, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group3, 'OAS Count': CountQueryNNN, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group3, 'OAS Count': CountQueryOOO, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group3, 'OAS Count': CountQueryPPP, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group3, 'OAS Count': CountQueryQQQ, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group3, 'OAS Count': CountQueryRRR, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group3, 'OAS Count': CountQuerySSS, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group3, 'OAS Count': CountQueryTTT, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group3, 'OAS Count': CountQueryUUU, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group3, 'OAS Count': CountQueryVVV, 'Type': Type2, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group3, 'OAS Count': CountQueryWWW, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group4, 'OAS Count': CountQueryAAAA, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group4, 'OAS Count': CountQueryBBBB, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group4, 'OAS Count': CountQueryCCCC, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group4, 'OAS Count': CountQueryDDDD, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group4, 'OAS Count': CountQueryEEEE, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group4, 'OAS Count': CountQueryFFFF, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group4, 'OAS Count': CountQueryGGGG, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group4, 'OAS Count': CountQueryHHHH, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group4, 'OAS Count': CountQueryIIII, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group4, 'OAS Count': CountQueryJJJJ, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group4, 'OAS Count': CountQueryKKKK, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group4, 'OAS Count': CountQueryLLLL, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group4, 'OAS Count': CountQueryMMMM, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group4, 'OAS Count': CountQueryNNNN, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group4, 'OAS Count': CountQueryOOOO, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group4, 'OAS Count': CountQueryPPPP, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group4, 'OAS Count': CountQueryQQQQ, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group4, 'OAS Count': CountQueryRRRR, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group4, 'OAS Count': CountQuerySSSS, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group4, 'OAS Count': CountQueryTTTT, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group4, 'OAS Count': CountQueryUUUU, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    # file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group4, 'OAS Count': CountQueryVVVV, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
-    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group4, 'OAS Count': CountQueryWWWW, 'Type': 'Class', 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupA, 'Group': Group4, 'OAS Count': CountQueryAAAA, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupB, 'Group': Group4, 'OAS Count': CountQueryBBBB, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupC, 'Group': Group4, 'OAS Count': CountQueryCCCC, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupD, 'Group': Group4, 'OAS Count': CountQueryDDDD, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupE, 'Group': Group4, 'OAS Count': CountQueryEEEE, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupF, 'Group': Group4, 'OAS Count': CountQueryFFFF, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupG, 'Group': Group4, 'OAS Count': CountQueryGGGG, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupH, 'Group': Group4, 'OAS Count': CountQueryHHHH, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupI, 'Group': Group4, 'OAS Count': CountQueryIIII, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupJ, 'Group': Group4, 'OAS Count': CountQueryJJJJ, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupK, 'Group': Group4, 'OAS Count': CountQueryKKKK, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupL, 'Group': Group4, 'OAS Count': CountQueryLLLL, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupM, 'Group': Group4, 'OAS Count': CountQueryMMMM, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupN, 'Group': Group4, 'OAS Count': CountQueryNNNN, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupO, 'Group': Group4, 'OAS Count': CountQueryOOOO, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupP, 'Group': Group4, 'OAS Count': CountQueryPPPP, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupQ, 'Group': Group4, 'OAS Count': CountQueryQQQQ, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupR, 'Group': Group4, 'OAS Count': CountQueryRRRR, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupS, 'Group': Group4, 'OAS Count': CountQuerySSSS, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupT, 'Group': Group4, 'OAS Count': CountQueryTTTT, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupU, 'Group': Group4, 'OAS Count': CountQueryUUUU, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupV, 'Group': Group4, 'OAS Count': CountQueryVVVV, 'Type': Type2, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupW, 'Group': Group4, 'OAS Count': CountQueryWWWW, 'Type': Type1, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
+
+for file in abs_scanned_excel_files:
+    # Read the Excel file
+    df = pd.read_excel(file)
+
+    # Get the OAS Count
+    record_count = len(df)
+
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupABS, 'Group': GroupABS, 'OAS Count': record_count, 'Type': Type0, 'Status': 'Scanned'}, ignore_index=True)
+
+for file in abs_pending_excel_files:
+    # Read the Excel file
+    df = pd.read_excel(file)
+
+    # Get the OAS Count
+    record_count = len(df)
+
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupABS,  'Group': GroupABS, 'OAS Count': record_count, 'Type': Type0, 'Status': 'Pending Conversion'}, ignore_index=True)
+
+for file in abs_outstanding_excel_files:
+    # Read the Excel file
+    df = pd.read_excel(file)
+
+    # Get the OAS Count
+    record_count = len(df)
+
+    # Store the file name and OAS Count in the DataFrame
+    file_counts = file_counts.append({'File Name': file, 'Centre': GroupABS,  'Group': GroupABS, 'OAS Count': record_count, 'Type': Type0, 'Status': 'Outstanding Scan(s)'}, ignore_index=True)
 
 # Write the file counts to a new Excel file
 file_counts.to_excel('z_Final.xlsx', index=False)
