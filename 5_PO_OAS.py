@@ -23,9 +23,9 @@ df = pd.concat(pd.read_excel(data, sheet_name=None), ignore_index=False)
 print("Successfully read data from sheet...")
 
 # Dataframe queries
-PendingConversion = df.query('`OAS Submitted` == True & `SA1 OAS Week` != `SA1 OAS Week` & `Student Name` == `Student Name` & `PIC for OAS converted to Googlesheet` == `PIC for OAS converted to Googlesheet` & `Date OAS converted to googlesheet` != `Date OAS converted to googlesheet`')
-OutstandingScans = df.query('`OAS Submitted` == False & `SA1 OAS Week` != `SA1 OAS Week` & `Student Name` == `Student Name` & `PIC for OAS converted to Googlesheet` == `PIC for OAS converted to Googlesheet`')
-ScannedOAS = df.query('`OAS Submitted` == True & `SA1 OAS Week` != `SA1 OAS Week` & `Student Name` == `Student Name` & `PIC for OAS converted to Googlesheet` == `PIC for OAS converted to Googlesheet` & `Date OAS converted to googlesheet` == `Date OAS converted to googlesheet`')
+PendingConversion = df.query('`OAS Scan in Folder (Please check only after u have checked that the file is in the class QCP folder, to prevent false submission records)` == True & `QCP2/ Prelim OAS Week` != `QCP2/ Prelim OAS Week` & `Student Name` == `Student Name` & `PIC for OAS converted to Googlesheet` == `PIC for OAS converted to Googlesheet` & `Date OAS converted to googlesheet` != `Date OAS converted to googlesheet`')
+OutstandingScans = df.query('`OAS Scan in Folder (Please check only after u have checked that the file is in the class QCP folder, to prevent false submission records)` == False & `QCP2/ Prelim OAS Week` != `QCP2/ Prelim OAS Week` & `Student Name` == `Student Name` & `PIC for OAS converted to Googlesheet` == `PIC for OAS converted to Googlesheet`')
+ScannedOAS = df.query('`OAS Scan in Folder (Please check only after u have checked that the file is in the class QCP folder, to prevent false submission records)` == True & `QCP2/ Prelim OAS Week` != `QCP2/ Prelim OAS Week` & `Student Name` == `Student Name` & `PIC for OAS converted to Googlesheet` == `PIC for OAS converted to Googlesheet` & `Date OAS converted to googlesheet` == `Date OAS converted to googlesheet`')
 
 # Check if a previous version of XLSX files exists
 try:
