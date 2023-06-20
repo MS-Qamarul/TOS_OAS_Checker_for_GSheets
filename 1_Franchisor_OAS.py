@@ -25,6 +25,7 @@ print("Successfully read data from sheet...")
 PendingConversion = df.query('Scanned == True & Teacher == Teacher & `Date of IT conversion to Verificare` != `Date of IT conversion to Verificare`')
 OutstandingScans = df.query('Scanned == False & Teacher == Teacher')
 ScannedOAS = df.query('Scanned == True & Teacher == Teacher')
+ConvertedOAS = df.query('Scanned == True & Teacher == Teacher & `Date of IT conversion to Verificare` == `Date of IT conversion to Verificare`')
 
 # Check if a previous version of XLSX files exists
 try:
@@ -40,6 +41,10 @@ try:
     os.path.exists("./Scanned OAS Franchisor.xlsx")
     os.remove("./Scanned OAS Franchisor.xlsx")
     print("A previous version of Scanned OAS Franchisor.xlsx detected! Deleting file...")
+    # Converted OAS
+    os.path.exists("./Converted OAS Franchisor.xlsx")
+    os.remove("./Converted OAS Franchisor.xlsx")
+    print("A previous version of Converted OAS Franchisor.xlsx detected! Deleting file...")
 except:
     logging.info("Proceed to export data...")
     print("Proceed to export data...")
@@ -51,5 +56,6 @@ OutstandingScans.to_excel("Outstanding Scans Franchisor.xlsx")
 print("Outstanding Scans Franchisor.xlsx created!")
 ScannedOAS.to_excel("Scanned OAS Franchisor.xlsx")
 print("Scanned OAS Franchisor.xlsx created!")
-print("Success!")
+ConvertedOAS.to_excel("Converted OAS Franchisor.xlsx")
+print("Converted OAS Franchisor.xlsx created!")
 logging.info("End of 1_Franchisor_OAS.py...")
