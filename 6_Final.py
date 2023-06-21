@@ -23,7 +23,7 @@ Group4 = "S1-3 Sciences (Week 33-34)"
 # Types
 Type0 = "Absentee"
 Type1 = "Class"
-Type2 = "Students"
+Type2 = "PO Students"
 
 # List of MS Centres
 GroupABS = "ABS"
