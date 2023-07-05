@@ -4,15 +4,9 @@ import requests
 import logging
 import os
 from io import BytesIO
-from tkinter import messagebox
-
-# Create log file
-logging.basicConfig(filename="log.txt", level=logging.DEBUG, format="%(asctime)s %(message)s", filemode="a")
-logging.info("Running 2_Franchisee_OAS.py...")
 
 # Read from Google Sheets without API
-# QCP2 1DKwHmmEJm6BWEJ5fsZ0KSOLHoQG6yDxJBmMAOpugxgY / SA1 1j_z-6aAELodrDe0S08hViss9h9Rp0xEuUefGsnjc2nM
-spreadsheetId = "1DKwHmmEJm6BWEJ5fsZ0KSOLHoQG6yDxJBmMAOpugxgY" # Spreadsheet ID to change every QCP period, current example for AY2023-SA1
+spreadsheetId = "1DKwHmmEJm6BWEJ5fsZ0KSOLHoQG6yDxJBmMAOpugxgY" # Spreadsheet ID to change every QCP period
 url = "https://docs.google.com/spreadsheets/export?exportFormat=xlsx&id=" + spreadsheetId
 res = requests.get(url)
 data = BytesIO(res.content)
@@ -46,7 +40,6 @@ try:
     os.remove("./Converted OAS Franchisee.xlsx")
     print("A previous version of Converted OAS Franchisee.xlsx detected! Deleting file...")
 except:
-    logging.info("Proceed to export data...")
     print("Proceed to export data...")
 
 # Write to XLSX file on local device in working directory
@@ -58,4 +51,3 @@ ScannedOAS.to_excel("Scanned OAS Franchisee.xlsx")
 print("Scanned OAS Franchisee.xlsx created!")
 ConvertedOAS.to_excel("Converted OAS Franchisee.xlsx")
 print("Converted OAS Franchisee.xlsx created!")
-logging.info("End of 2_Franchisee_OAS.py...")

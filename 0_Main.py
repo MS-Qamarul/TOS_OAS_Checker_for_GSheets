@@ -1,8 +1,4 @@
 import subprocess
-import logging
-
-# Create log file
-logging.basicConfig(filename="log.txt", level=logging.DEBUG, format="%(asctime)s %(message)s", filemode="w")
 
 print("========== Program is running, please wait ==========")
 
