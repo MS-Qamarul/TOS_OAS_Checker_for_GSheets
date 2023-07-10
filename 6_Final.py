@@ -1,8 +1,6 @@
 import pandas as pd
 import os
 
-# VARIABLES
-
 # Scan Status
 ScanTrue = "Scanned"
 ScanFalse = "Outstanding"
@@ -37,7 +35,7 @@ CentreK = "Marine Parade"
 CentreL = "Northshore"
 CentreM = "Pioneer"
 CentreN = "Punggol Central"
-CentreO = "Punggol Plaza"
+CentreO = "Punggol"
 CentreP = "Rivervale"
 CentreQ = "Seletar"
 CentreR = "Sembawang"
@@ -45,6 +43,9 @@ CentreS = "Simei"
 CentreT = "West Campus"
 CentreU = "Woodlands Central"
 CentreV = "Yishun"
+CentreW = "Bishan J8"
+CentreX = "Woodleigh"
+CentreY = "One Punggol"
 CentreOnline = "Online"
 
 # Query for Batch 1
@@ -70,6 +71,9 @@ QueryS = '`Class: Class Code`.str.contains("SME2023-P6") or `Class: Class Code`.
 QueryT = '`Class: Class Code`.str.contains("WC2023-P6") or `Class: Class Code`.str.contains("WC2023-OL")'
 QueryU = '`Class: Class Code`.str.contains("WLC2023-P6") or `Class: Class Code`.str.contains("WLC2023-OL")'
 QueryV = '`Class: Class Code`.str.contains("YS2023-P6") or `Class: Class Code`.str.contains("YS2023-OL")'
+QueryW = '`Class: Class Code`.str.contains("BS82023-P6") or `Class: Class Code`.str.contains("BS82023-OL")'
+QueryX = '`Class: Class Code`.str.contains("WLH2023-P6") or `Class: Class Code`.str.contains("WLH2023-OL")'
+QueryY = '`Class: Class Code`.str.contains("OPG2023-P6") or `Class: Class Code`.str.contains("OPG2023-OL")'
 QueryOnline = '`Class: Class Code`.str.contains("ED2023-P6") or `Class: Class Code`.str.contains("ED2023-OL")'
 
 # Query for Batch 2
@@ -95,6 +99,9 @@ QuerySS = '`Class: Class Code`.str.contains("SME2023-S1C") or `Class: Class Code
 QueryTT = '`Class: Class Code`.str.contains("WC2023-S1C") or `Class: Class Code`.str.contains("WC2023-S2C") or `Class: Class Code`.str.contains("WC2023-S3C")'
 QueryUU = '`Class: Class Code`.str.contains("WLC2023-S1C") or `Class: Class Code`.str.contains("WLC2023-S2C") or `Class: Class Code`.str.contains("WLC2023-S3C")'
 QueryVV = '`Class: Class Code`.str.contains("YS2023-S1C") or `Class: Class Code`.str.contains("YS2023-S2C") or `Class: Class Code`.str.contains("YS2023-S3C")'
+QueryWW = '`Class: Class Code`.str.contains("BS82023-S1C") or `Class: Class Code`.str.contains("BS82023-S2C") or `Class: Class Code`.str.contains("BS82023-S3C")'
+QueryXX = '`Class: Class Code`.str.contains("WLH2023-S1C") or `Class: Class Code`.str.contains("WLH2023-S2C") or `Class: Class Code`.str.contains("WLH2023-S3C")'
+QueryYY = '`Class: Class Code`.str.contains("OPG2023-S1C") or `Class: Class Code`.str.contains("OPG2023-S2C") or `Class: Class Code`.str.contains("OPG2023-S3C")'
 QueryOnline2 = '`Class: Class Code`.str.contains("ED2023-S1C") or `Class: Class Code`.str.contains("ED2023-S2C") or `Class: Class Code`.str.contains("ED2023-S3C")'
 
 # Query for Batch 3
@@ -120,6 +127,9 @@ QuerySSS = '`Class: Class Code`.str.contains("SME2023-P3") or `Class: Class Code
 QueryTTT = '`Class: Class Code`.str.contains("WC2023-P3") or `Class: Class Code`.str.contains("WC2023-P4") or `Class: Class Code`.str.contains("WC2023-P5")'
 QueryUUU = '`Class: Class Code`.str.contains("WLC2023-P3") or `Class: Class Code`.str.contains("WLC2023-P4") or `Class: Class Code`.str.contains("WLC2023-P5")'
 QueryVVV = '`Class: Class Code`.str.contains("YS2023-P3") or `Class: Class Code`.str.contains("YS2023-P4") or `Class: Class Code`.str.contains("YS2023-P5")'
+QueryWWW = '`Class: Class Code`.str.contains("BS82023-P3") or `Class: Class Code`.str.contains("BS82023-P4") or `Class: Class Code`.str.contains("BS82023-P5")'
+QueryXXX = '`Class: Class Code`.str.contains("WLH2023-P3") or `Class: Class Code`.str.contains("WLH2023-P4") or `Class: Class Code`.str.contains("WLH2023-P5")'
+QueryYYY = '`Class: Class Code`.str.contains("OPG2023-P3") or `Class: Class Code`.str.contains("OPG2023-P4") or `Class: Class Code`.str.contains("OPG2023-P5")'
 QueryOnline3 = '`Class: Class Code`.str.contains("ED2023-P3") or `Class: Class Code`.str.contains("ED2023-P4") or `Class: Class Code`.str.contains("ED2023-P5")'
 
 # Query for Batch 4
@@ -145,6 +155,9 @@ QuerySSSS = '`Class: Class Code`.str.contains("SME2023-S1S") or `Class: Class Co
 QueryTTTT = '`Class: Class Code`.str.contains("WC2023-S1S") or `Class: Class Code`.str.contains("WC2023-S2S") or `Class: Class Code`.str.contains("WC2023-S3S")'
 QueryUUUU = '`Class: Class Code`.str.contains("WLC2023-S1S") or `Class: Class Code`.str.contains("WLC2023-S2S") or `Class: Class Code`.str.contains("WLC2023-S3S")'
 QueryVVVV = '`Class: Class Code`.str.contains("YS2023-S1S") or `Class: Class Code`.str.contains("YS2023-S2S") or `Class: Class Code`.str.contains("YS2023-S3S")'
+QueryWWWW = '`Class: Class Code`.str.contains("BS82023-S1S") or `Class: Class Code`.str.contains("BS82023-S2S") or `Class: Class Code`.str.contains("BS82023-S3S")'
+QueryXXXX = '`Class: Class Code`.str.contains("WLH2023-S1S") or `Class: Class Code`.str.contains("WLH2023-S2S") or `Class: Class Code`.str.contains("WLH2023-S3S")'
+QueryYYYY = '`Class: Class Code`.str.contains("OPG2023-S1S") or `Class: Class Code`.str.contains("OPG2023-S2S") or `Class: Class Code`.str.contains("OPG2023-S3S")'
 QueryOnline4 = '`Class: Class Code`.str.contains("ED2023-S1S") or `Class: Class Code`.str.contains("ED2023-S2S") or `Class: Class Code`.str.contains("ED2023-S3S")'
 
 # Check and delete previous Excel file
@@ -232,6 +245,9 @@ for file in scanned_excel_files:
     Query20 = df.query(QueryT, engine = 'python')
     Query21 = df.query(QueryU, engine = 'python')
     Query22 = df.query(QueryV, engine = 'python')
+    Query23 = df.query(QueryW, engine = 'python')
+    Query24 = df.query(QueryX, engine = 'python')
+    Query25 = df.query(QueryY, engine = 'python')
     QueryPO = df.query(QueryOnline, engine = 'python')
 
     # Dataframe Queries
@@ -257,6 +273,9 @@ for file in scanned_excel_files:
     Query20A = df.query(QueryTT, engine = 'python')
     Query21A = df.query(QueryUU, engine = 'python')
     Query22A = df.query(QueryVV, engine = 'python')
+    Query23A = df.query(QueryWW, engine = 'python')
+    Query24A = df.query(QueryXX, engine = 'python')
+    Query25A = df.query(QueryYY, engine = 'python')
     QueryPOA = df.query(QueryOnline2, engine = 'python')
 
     # Dataframe Queries
@@ -282,6 +301,9 @@ for file in scanned_excel_files:
     Query20B = df.query(QueryTTT, engine = 'python')
     Query21B = df.query(QueryUUU, engine = 'python')
     Query22B = df.query(QueryVVV, engine = 'python')
+    Query23B = df.query(QueryWWW, engine = 'python')
+    Query24B = df.query(QueryXXX, engine = 'python')
+    Query25B = df.query(QueryYYY, engine = 'python')
     QueryPOB = df.query(QueryOnline3, engine = 'python')
 
     # Dataframe Queries
@@ -307,6 +329,9 @@ for file in scanned_excel_files:
     Query20C = df.query(QueryTTTT, engine = 'python')
     Query21C = df.query(QueryUUUU, engine = 'python')
     Query22C = df.query(QueryVVVV, engine = 'python')
+    Query23C = df.query(QueryWWWW, engine = 'python')
+    Query24C = df.query(QueryXXXX, engine = 'python')
+    Query25C = df.query(QueryYYYY, engine = 'python')
     QueryPOC = df.query(QueryOnline4, engine = 'python')
 
     # Get the OAS Count
@@ -332,6 +357,9 @@ for file in scanned_excel_files:
     CountQueryT = len(Query20)
     CountQueryU = len(Query21)
     CountQueryV = len(Query22)
+    CountQueryW = len(Query23)
+    CountQueryX = len(Query24)
+    CountQueryY = len(Query25)
     CountQueryOnline = len(QueryPO)
 
     # Get the OAS Count
@@ -357,6 +385,9 @@ for file in scanned_excel_files:
     CountQueryTT = len(Query20A)
     CountQueryUU = len(Query21A)
     CountQueryVV = len(Query22A)
+    CountQueryWW = len(Query23A)
+    CountQueryXX = len(Query24A)
+    CountQueryYY = len(Query25A)
     CountQueryOnline2 = len(QueryPOA)
 
     # Get the OAS Count
@@ -382,6 +413,9 @@ for file in scanned_excel_files:
     CountQueryTTT = len(Query20B)
     CountQueryUUU = len(Query21B)
     CountQueryVVV = len(Query22B)
+    CountQueryWWW = len(Query23B)
+    CountQueryXXX = len(Query24B)
+    CountQueryYYY = len(Query25B)
     CountQueryOnline3 = len(QueryPOB)
 
     # Get the OAS Count
@@ -407,6 +441,9 @@ for file in scanned_excel_files:
     CountQueryTTTT = len(Query20C)
     CountQueryUUUU = len(Query21C)
     CountQueryVVVV = len(Query22C)
+    CountQueryWWWW = len(Query23C)
+    CountQueryXXXX = len(Query24C)
+    CountQueryYYYY = len(Query25C)
     CountQueryOnline4 = len(QueryPOC)
 
     # Store the file name and OAS Count in the DataFrame
@@ -432,6 +469,9 @@ for file in scanned_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch1, 'Count': CountQueryT, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch1, 'Count': CountQueryU, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch1, 'Count': CountQueryV, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch1, 'Count': CountQueryW, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch1, 'Count': CountQueryX, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch1, 'Count': CountQueryY, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch1, 'Count': CountQueryOnline, 'Type': DataType3, 'Scan Status': ScanTrue}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
@@ -457,6 +497,9 @@ for file in scanned_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch2, 'Count': CountQueryTT, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch2, 'Count': CountQueryUU, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch2, 'Count': CountQueryVV, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch2, 'Count': CountQueryWW, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch2, 'Count': CountQueryXX, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch2, 'Count': CountQueryYY, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch2, 'Count': CountQueryOnline2, 'Type': DataType3, 'Scan Status': ScanTrue}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
@@ -482,6 +525,9 @@ for file in scanned_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch3, 'Count': CountQueryTTT, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch3, 'Count': CountQueryUUU, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch3, 'Count': CountQueryVVV, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch3, 'Count': CountQueryWWW, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch3, 'Count': CountQueryXXX, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch3, 'Count': CountQueryYYY, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch3, 'Count': CountQueryOnline3, 'Type': DataType3, 'Scan Status': ScanTrue}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
@@ -507,6 +553,9 @@ for file in scanned_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch4, 'Count': CountQueryTTTT, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch4, 'Count': CountQueryUUUU, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch4, 'Count': CountQueryVVVV, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch4, 'Count': CountQueryWWWW, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch4, 'Count': CountQueryXXXX, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch4, 'Count': CountQueryYYYY, 'Type': DataType1, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch4, 'Count': CountQueryOnline4, 'Type': DataType3, 'Scan Status': ScanTrue}, ignore_index=True)
 
 for file in pending_excel_files:
@@ -536,6 +585,9 @@ for file in pending_excel_files:
     Query20 = df.query(QueryT, engine = 'python')
     Query21 = df.query(QueryU, engine = 'python')
     Query22 = df.query(QueryV, engine = 'python')
+    Query23 = df.query(QueryW, engine = 'python')
+    Query24 = df.query(QueryX, engine = 'python')
+    Query25 = df.query(QueryY, engine = 'python')
     QueryPO = df.query(QueryOnline, engine = 'python')
 
     # Dataframe Queries
@@ -561,6 +613,9 @@ for file in pending_excel_files:
     Query20A = df.query(QueryTT, engine = 'python')
     Query21A = df.query(QueryUU, engine = 'python')
     Query22A = df.query(QueryVV, engine = 'python')
+    Query23A = df.query(QueryWW, engine = 'python')
+    Query24A = df.query(QueryXX, engine = 'python')
+    Query25A = df.query(QueryYY, engine = 'python')
     QueryPOA = df.query(QueryOnline2, engine = 'python')
 
     # Dataframe Queries
@@ -586,6 +641,9 @@ for file in pending_excel_files:
     Query20B = df.query(QueryTTT, engine = 'python')
     Query21B = df.query(QueryUUU, engine = 'python')
     Query22B = df.query(QueryVVV, engine = 'python')
+    Query23B = df.query(QueryWWW, engine = 'python')
+    Query24B = df.query(QueryXXX, engine = 'python')
+    Query25B = df.query(QueryYYY, engine = 'python')
     QueryPOB = df.query(QueryOnline3, engine = 'python')
 
     # Dataframe Queries
@@ -611,6 +669,9 @@ for file in pending_excel_files:
     Query20C = df.query(QueryTTTT, engine = 'python')
     Query21C = df.query(QueryUUUU, engine = 'python')
     Query22C = df.query(QueryVVVV, engine = 'python')
+    Query23C = df.query(QueryWWWW, engine = 'python')
+    Query24C = df.query(QueryXXXX, engine = 'python')
+    Query25C = df.query(QueryYYYY, engine = 'python')
     QueryPOC = df.query(QueryOnline4, engine = 'python')
 
     # Get the OAS Count
@@ -636,6 +697,9 @@ for file in pending_excel_files:
     CountQueryT = len(Query20)
     CountQueryU = len(Query21)
     CountQueryV = len(Query22)
+    CountQueryW = len(Query23)
+    CountQueryX = len(Query24)
+    CountQueryY = len(Query25)
     CountQueryOnline = len(QueryPO)
 
     # Get the OAS Count
@@ -661,6 +725,9 @@ for file in pending_excel_files:
     CountQueryTT = len(Query20A)
     CountQueryUU = len(Query21A)
     CountQueryVV = len(Query22A)
+    CountQueryWW = len(Query23A)
+    CountQueryXX = len(Query24A)
+    CountQueryYY = len(Query25A)
     CountQueryOnline2 = len(QueryPOA)
 
     # Get the OAS Count
@@ -686,6 +753,9 @@ for file in pending_excel_files:
     CountQueryTTT = len(Query20B)
     CountQueryUUU = len(Query21B)
     CountQueryVVV = len(Query22B)
+    CountQueryWWW = len(Query23B)
+    CountQueryXXX = len(Query24B)
+    CountQueryYYY = len(Query25B)
     CountQueryOnline3 = len(QueryPOB)
 
     # Get the OAS Count
@@ -711,6 +781,9 @@ for file in pending_excel_files:
     CountQueryTTTT = len(Query20C)
     CountQueryUUUU = len(Query21C)
     CountQueryVVVV = len(Query22C)
+    CountQueryWWWW = len(Query23C)
+    CountQueryXXXX = len(Query24C)
+    CountQueryYYYY = len(Query25C)
     CountQueryOnline4 = len(QueryPOC)
 
     # Store the file name and OAS Count in the DataFrame
@@ -736,6 +809,9 @@ for file in pending_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch1, 'Count': CountQueryT, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch1, 'Count': CountQueryU, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch1, 'Count': CountQueryV, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch1, 'Count': CountQueryW, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch1, 'Count': CountQueryX, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch1, 'Count': CountQueryY, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch1, 'Count': CountQueryOnline, 'Type': DataType3, 'Conversion Status': ConvertFalse}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
@@ -761,6 +837,9 @@ for file in pending_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch2, 'Count': CountQueryTT, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch2, 'Count': CountQueryUU, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch2, 'Count': CountQueryVV, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch2, 'Count': CountQueryWW, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch2, 'Count': CountQueryXX, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch2, 'Count': CountQueryYY, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch2, 'Count': CountQueryOnline2, 'Type': DataType3, 'Conversion Status': ConvertFalse}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
@@ -786,6 +865,9 @@ for file in pending_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch3, 'Count': CountQueryTTT, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch3, 'Count': CountQueryUUU, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch3, 'Count': CountQueryVVV, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch3, 'Count': CountQueryWWW, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch3, 'Count': CountQueryXXX, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch3, 'Count': CountQueryYYY, 'Type': DataType1, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch3, 'Count': CountQueryOnline3, 'Type': DataType3, 'Conversion Status': ConvertFalse}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
@@ -840,6 +922,9 @@ for file in outstanding_excel_files:
     Query20 = df.query(QueryT, engine = 'python')
     Query21 = df.query(QueryU, engine = 'python')
     Query22 = df.query(QueryV, engine = 'python')
+    Query23 = df.query(QueryW, engine = 'python')
+    Query24 = df.query(QueryX, engine = 'python')
+    Query25 = df.query(QueryY, engine = 'python')
     QueryPO = df.query(QueryOnline, engine = 'python')
 
     # Dataframe Queries
@@ -865,6 +950,9 @@ for file in outstanding_excel_files:
     Query20A = df.query(QueryTT, engine = 'python')
     Query21A = df.query(QueryUU, engine = 'python')
     Query22A = df.query(QueryVV, engine = 'python')
+    Query23A = df.query(QueryWW, engine = 'python')
+    Query24A = df.query(QueryXX, engine = 'python')
+    Query25A = df.query(QueryYY, engine = 'python')
     QueryPOA = df.query(QueryOnline2, engine = 'python')
 
     # Dataframe Queries
@@ -890,6 +978,9 @@ for file in outstanding_excel_files:
     Query20B = df.query(QueryTTT, engine = 'python')
     Query21B = df.query(QueryUUU, engine = 'python')
     Query22B = df.query(QueryVVV, engine = 'python')
+    Query23B = df.query(QueryWWW, engine = 'python')
+    Query24B = df.query(QueryXXX, engine = 'python')
+    Query25B = df.query(QueryYYY, engine = 'python')
     QueryPOB = df.query(QueryOnline3, engine = 'python')
 
     # Dataframe Queries
@@ -915,6 +1006,9 @@ for file in outstanding_excel_files:
     Query20C = df.query(QueryTTTT, engine = 'python')
     Query21C = df.query(QueryUUUU, engine = 'python')
     Query22C = df.query(QueryVVVV, engine = 'python')
+    Query23C = df.query(QueryWWWW, engine = 'python')
+    Query24C = df.query(QueryXXXX, engine = 'python')
+    Query25C = df.query(QueryYYYY, engine = 'python')
     QueryPOC = df.query(QueryOnline4, engine = 'python')
 
     # Get the OAS Count
@@ -940,6 +1034,9 @@ for file in outstanding_excel_files:
     CountQueryT = len(Query20)
     CountQueryU = len(Query21)
     CountQueryV = len(Query22)
+    CountQueryW = len(Query23)
+    CountQueryX = len(Query24)
+    CountQueryY = len(Query25)
     CountQueryOnline = len(QueryPO)
 
     # Get the OAS Count
@@ -965,6 +1062,9 @@ for file in outstanding_excel_files:
     CountQueryTT = len(Query20A)
     CountQueryUU = len(Query21A)
     CountQueryVV = len(Query22A)
+    CountQueryWW = len(Query23A)
+    CountQueryXX = len(Query24A)
+    CountQueryYY = len(Query25A)
     CountQueryOnline2 = len(QueryPOA)
 
     # Get the OAS Count
@@ -990,6 +1090,9 @@ for file in outstanding_excel_files:
     CountQueryTTT = len(Query20B)
     CountQueryUUU = len(Query21B)
     CountQueryVVV = len(Query22B)
+    CountQueryWWW = len(Query23B)
+    CountQueryXXX = len(Query24B)
+    CountQueryYYY = len(Query25B)
     CountQueryOnline3 = len(QueryPOB)
 
     # Get the OAS Count
@@ -1015,6 +1118,9 @@ for file in outstanding_excel_files:
     CountQueryTTTT = len(Query20C)
     CountQueryUUUU = len(Query21C)
     CountQueryVVVV = len(Query22C)
+    CountQueryWWWW = len(Query23C)
+    CountQueryXXXX = len(Query24C)
+    CountQueryYYYY = len(Query25C)
     CountQueryOnline4 = len(QueryPOC)
 
     # Store the file name and OAS Count in the DataFrame
@@ -1040,6 +1146,9 @@ for file in outstanding_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch1, 'Count': CountQueryT, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch1, 'Count': CountQueryU, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch1, 'Count': CountQueryV, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch1, 'Count': CountQueryW, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch1, 'Count': CountQueryX, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch1, 'Count': CountQueryY, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch1, 'Count': CountQueryOnline, 'Type': DataType3, 'Scan Status': ScanFalse}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
@@ -1065,6 +1174,9 @@ for file in outstanding_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch2, 'Count': CountQueryTT, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch2, 'Count': CountQueryUU, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch2, 'Count': CountQueryVV, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch2, 'Count': CountQueryWW, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch2, 'Count': CountQueryXX, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch2, 'Count': CountQueryYY, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch2, 'Count': CountQueryOnline2, 'Type': DataType3, 'Scan Status': ScanFalse}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
@@ -1090,6 +1202,9 @@ for file in outstanding_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch3, 'Count': CountQueryTTT, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch3, 'Count': CountQueryUUU, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch3, 'Count': CountQueryVVV, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch3, 'Count': CountQueryWWW, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch3, 'Count': CountQueryXXX, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch3, 'Count': CountQueryYYY, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch3, 'Count': CountQueryOnline3, 'Type': DataType3, 'Scan Status': ScanFalse}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
@@ -1115,6 +1230,9 @@ for file in outstanding_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch4, 'Count': CountQueryTTTT, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch4, 'Count': CountQueryUUUU, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch4, 'Count': CountQueryVVVV, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch4, 'Count': CountQueryWWWW, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch4, 'Count': CountQueryXXXX, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch4, 'Count': CountQueryYYYY, 'Type': DataType1, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch4, 'Count': CountQueryOnline4, 'Type': DataType3, 'Scan Status': ScanFalse}, ignore_index=True)
 
 for file in converted_excel_files:
@@ -1144,6 +1262,9 @@ for file in converted_excel_files:
     Query20 = df.query(QueryT, engine = 'python')
     Query21 = df.query(QueryU, engine = 'python')
     Query22 = df.query(QueryV, engine = 'python')
+    Query23 = df.query(QueryW, engine = 'python')
+    Query24 = df.query(QueryX, engine = 'python')
+    Query25 = df.query(QueryY, engine = 'python')
     QueryPO = df.query(QueryOnline, engine = 'python')
 
     # Dataframe Queries
@@ -1169,6 +1290,9 @@ for file in converted_excel_files:
     Query20A = df.query(QueryTT, engine = 'python')
     Query21A = df.query(QueryUU, engine = 'python')
     Query22A = df.query(QueryVV, engine = 'python')
+    Query23A = df.query(QueryWW, engine = 'python')
+    Query24A = df.query(QueryXX, engine = 'python')
+    Query25A = df.query(QueryYY, engine = 'python')
     QueryPOA = df.query(QueryOnline2, engine = 'python')
 
     # Dataframe Queries
@@ -1194,6 +1318,9 @@ for file in converted_excel_files:
     Query20B = df.query(QueryTTT, engine = 'python')
     Query21B = df.query(QueryUUU, engine = 'python')
     Query22B = df.query(QueryVVV, engine = 'python')
+    Query23B = df.query(QueryWWW, engine = 'python')
+    Query24B = df.query(QueryXXX, engine = 'python')
+    Query25B = df.query(QueryYYY, engine = 'python')
     QueryPOB = df.query(QueryOnline3, engine = 'python')
 
     # Dataframe Queries
@@ -1219,6 +1346,9 @@ for file in converted_excel_files:
     Query20C = df.query(QueryTTTT, engine = 'python')
     Query21C = df.query(QueryUUUU, engine = 'python')
     Query22C = df.query(QueryVVVV, engine = 'python')
+    Query23C = df.query(QueryWWWW, engine = 'python')
+    Query24C = df.query(QueryXXXX, engine = 'python')
+    Query25C = df.query(QueryYYYY, engine = 'python')
     QueryPOC = df.query(QueryOnline4, engine = 'python')
 
     # Get the OAS Count
@@ -1244,6 +1374,9 @@ for file in converted_excel_files:
     CountQueryT = len(Query20)
     CountQueryU = len(Query21)
     CountQueryV = len(Query22)
+    CountQueryW = len(Query23)
+    CountQueryX = len(Query24)
+    CountQueryY = len(Query25)
     CountQueryOnline = len(QueryPO)
 
     # Get the OAS Count
@@ -1269,6 +1402,9 @@ for file in converted_excel_files:
     CountQueryTT = len(Query20A)
     CountQueryUU = len(Query21A)
     CountQueryVV = len(Query22A)
+    CountQueryWW = len(Query23A)
+    CountQueryXX = len(Query24A)
+    CountQueryYY = len(Query25A)
     CountQueryOnline2 = len(QueryPOA)
 
     # Get the OAS Count
@@ -1294,6 +1430,9 @@ for file in converted_excel_files:
     CountQueryTTT = len(Query20B)
     CountQueryUUU = len(Query21B)
     CountQueryVVV = len(Query22B)
+    CountQueryWWW = len(Query23B)
+    CountQueryXXX = len(Query24B)
+    CountQueryYYY = len(Query25B)
     CountQueryOnline3 = len(QueryPOB)
 
     # Get the OAS Count
@@ -1319,6 +1458,9 @@ for file in converted_excel_files:
     CountQueryTTTT = len(Query20C)
     CountQueryUUUU = len(Query21C)
     CountQueryVVVV = len(Query22C)
+    CountQueryWWWW = len(Query23C)
+    CountQueryXXXX = len(Query24C)
+    CountQueryYYYY = len(Query25C)
     CountQueryOnline4 = len(QueryPOC)
 
     # Store the file name and OAS Count in the DataFrame
@@ -1344,6 +1486,9 @@ for file in converted_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch1, 'Count': CountQueryT, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch1, 'Count': CountQueryU, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch1, 'Count': CountQueryV, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch1, 'Count': CountQueryW, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch1, 'Count': CountQueryX, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch1, 'Count': CountQueryY, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch1, 'Count': CountQueryOnline, 'Type': DataType3, 'Conversion Status': ConvertTrue}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
@@ -1369,6 +1514,9 @@ for file in converted_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch2, 'Count': CountQueryTT, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch2, 'Count': CountQueryUU, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch2, 'Count': CountQueryVV, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch2, 'Count': CountQueryWW, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch2, 'Count': CountQueryXX, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch2, 'Count': CountQueryYY, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch2, 'Count': CountQueryOnline2, 'Type': DataType3, 'Conversion Status': ConvertTrue}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
@@ -1394,6 +1542,9 @@ for file in converted_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch3, 'Count': CountQueryTTT, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch3, 'Count': CountQueryUUU, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch3, 'Count': CountQueryVVV, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch3, 'Count': CountQueryWWW, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch3, 'Count': CountQueryXXX, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch3, 'Count': CountQueryYYY, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch3, 'Count': CountQueryOnline3, 'Type': DataType3, 'Conversion Status': ConvertTrue}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
@@ -1419,6 +1570,9 @@ for file in converted_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch4, 'Count': CountQueryTTTT, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch4, 'Count': CountQueryUUUU, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch4, 'Count': CountQueryVVVV, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch4, 'Count': CountQueryWWWW, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch4, 'Count': CountQueryXXXX, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch4, 'Count': CountQueryYYYY, 'Type': DataType1, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreOnline, 'Batch': Batch4, 'Count': CountQueryOnline4, 'Type': DataType3, 'Conversion Status': ConvertTrue}, ignore_index=True)
 
 for file in abs_scanned_excel_files:
@@ -1448,6 +1602,9 @@ for file in abs_scanned_excel_files:
     Query20 = df.query(QueryT, engine = 'python')
     Query21 = df.query(QueryU, engine = 'python')
     Query22 = df.query(QueryV, engine = 'python')
+    Query23 = df.query(QueryW, engine = 'python')
+    Query24 = df.query(QueryX, engine = 'python')
+    Query25 = df.query(QueryY, engine = 'python')
     QueryPO = df.query(QueryOnline, engine = 'python')
 
     # Dataframe Queries
@@ -1473,6 +1630,9 @@ for file in abs_scanned_excel_files:
     Query20A = df.query(QueryTT, engine = 'python')
     Query21A = df.query(QueryUU, engine = 'python')
     Query22A = df.query(QueryVV, engine = 'python')
+    Query23A = df.query(QueryWW, engine = 'python')
+    Query24A = df.query(QueryXX, engine = 'python')
+    Query25A = df.query(QueryYY, engine = 'python')
     QueryPOA = df.query(QueryOnline2, engine = 'python')
 
     # Dataframe Queries
@@ -1498,6 +1658,9 @@ for file in abs_scanned_excel_files:
     Query20B = df.query(QueryTTT, engine = 'python')
     Query21B = df.query(QueryUUU, engine = 'python')
     Query22B = df.query(QueryVVV, engine = 'python')
+    Query23B = df.query(QueryWWW, engine = 'python')
+    Query24B = df.query(QueryXXX, engine = 'python')
+    Query25B = df.query(QueryYYY, engine = 'python')
     QueryPOB = df.query(QueryOnline3, engine = 'python')
 
     # Dataframe Queries
@@ -1523,6 +1686,9 @@ for file in abs_scanned_excel_files:
     Query20C = df.query(QueryTTTT, engine = 'python')
     Query21C = df.query(QueryUUUU, engine = 'python')
     Query22C = df.query(QueryVVVV, engine = 'python')
+    Query23C = df.query(QueryWWWW, engine = 'python')
+    Query24C = df.query(QueryXXXX, engine = 'python')
+    Query25C = df.query(QueryYYYY, engine = 'python')
     QueryPOC = df.query(QueryOnline4, engine = 'python')
 
     # Get the OAS Count
@@ -1548,6 +1714,9 @@ for file in abs_scanned_excel_files:
     CountQueryT = len(Query20)
     CountQueryU = len(Query21)
     CountQueryV = len(Query22)
+    CountQueryW = len(Query23)
+    CountQueryX = len(Query24)
+    CountQueryY = len(Query25)
     CountQueryOnline = len(QueryPO)
 
     # Get the OAS Count
@@ -1573,6 +1742,9 @@ for file in abs_scanned_excel_files:
     CountQueryTT = len(Query20A)
     CountQueryUU = len(Query21A)
     CountQueryVV = len(Query22A)
+    CountQueryWW = len(Query23A)
+    CountQueryXX = len(Query24A)
+    CountQueryYY = len(Query25A)
     CountQueryOnline2 = len(QueryPOA)
 
     # Get the OAS Count
@@ -1598,6 +1770,9 @@ for file in abs_scanned_excel_files:
     CountQueryTTT = len(Query20B)
     CountQueryUUU = len(Query21B)
     CountQueryVVV = len(Query22B)
+    CountQueryWWW = len(Query23B)
+    CountQueryXXX = len(Query24B)
+    CountQueryYYY = len(Query25B)
     CountQueryOnline3 = len(QueryPOB)
 
     # Get the OAS Count
@@ -1623,6 +1798,9 @@ for file in abs_scanned_excel_files:
     CountQueryTTTT = len(Query20C)
     CountQueryUUUU = len(Query21C)
     CountQueryVVVV = len(Query22C)
+    CountQueryWWWW = len(Query23C)
+    CountQueryXXXX = len(Query24C)
+    CountQueryYYYY = len(Query25C)
     CountQueryOnline4 = len(QueryPOC)
 
     # Store the file name and OAS Count in the DataFrame
@@ -1648,6 +1826,9 @@ for file in abs_scanned_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch1, 'Count': CountQueryT, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch1, 'Count': CountQueryU, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch1, 'Count': CountQueryV, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch1, 'Count': CountQueryW, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch1, 'Count': CountQueryX, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch1, 'Count': CountQueryY, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreA, 'Batch': Batch2, 'Count': CountQueryAA, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
@@ -1672,6 +1853,9 @@ for file in abs_scanned_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch2, 'Count': CountQueryTT, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch2, 'Count': CountQueryUU, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch2, 'Count': CountQueryVV, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch2, 'Count': CountQueryWW, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch2, 'Count': CountQueryXX, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch2, 'Count': CountQueryYY, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreA, 'Batch': Batch3, 'Count': CountQueryAAA, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
@@ -1696,6 +1880,9 @@ for file in abs_scanned_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch3, 'Count': CountQueryTTT, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch3, 'Count': CountQueryUUU, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch3, 'Count': CountQueryVVV, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch3, 'Count': CountQueryWWW, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch3, 'Count': CountQueryXXX, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch3, 'Count': CountQueryYYY, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreA, 'Batch': Batch4, 'Count': CountQueryAAAA, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
@@ -1720,6 +1907,9 @@ for file in abs_scanned_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch4, 'Count': CountQueryTTTT, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch4, 'Count': CountQueryUUUU, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch4, 'Count': CountQueryVVVV, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch4, 'Count': CountQueryWWWW, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch4, 'Count': CountQueryXXXX, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch4, 'Count': CountQueryYYYY, 'Type': DataType2, 'Scan Status': ScanTrue}, ignore_index=True)
 
 for file in abs_pending_excel_files:
     # Read the Excel file
@@ -1748,6 +1938,9 @@ for file in abs_pending_excel_files:
     Query20 = df.query(QueryT, engine = 'python')
     Query21 = df.query(QueryU, engine = 'python')
     Query22 = df.query(QueryV, engine = 'python')
+    Query23 = df.query(QueryW, engine = 'python')
+    Query24 = df.query(QueryX, engine = 'python')
+    Query25 = df.query(QueryY, engine = 'python')
     QueryPO = df.query(QueryOnline, engine = 'python')
 
     # Dataframe Queries
@@ -1773,6 +1966,9 @@ for file in abs_pending_excel_files:
     Query20A = df.query(QueryTT, engine = 'python')
     Query21A = df.query(QueryUU, engine = 'python')
     Query22A = df.query(QueryVV, engine = 'python')
+    Query23A = df.query(QueryWW, engine = 'python')
+    Query24A = df.query(QueryXX, engine = 'python')
+    Query25A = df.query(QueryYY, engine = 'python')
     QueryPOA = df.query(QueryOnline2, engine = 'python')
 
     # Dataframe Queries
@@ -1798,6 +1994,9 @@ for file in abs_pending_excel_files:
     Query20B = df.query(QueryTTT, engine = 'python')
     Query21B = df.query(QueryUUU, engine = 'python')
     Query22B = df.query(QueryVVV, engine = 'python')
+    Query23B = df.query(QueryWWW, engine = 'python')
+    Query24B = df.query(QueryXXX, engine = 'python')
+    Query25B = df.query(QueryYYY, engine = 'python')
     QueryPOB = df.query(QueryOnline3, engine = 'python')
 
     # Dataframe Queries
@@ -1823,6 +2022,9 @@ for file in abs_pending_excel_files:
     Query20C = df.query(QueryTTTT, engine = 'python')
     Query21C = df.query(QueryUUUU, engine = 'python')
     Query22C = df.query(QueryVVVV, engine = 'python')
+    Query23C = df.query(QueryWWWW, engine = 'python')
+    Query24C = df.query(QueryXXXX, engine = 'python')
+    Query25C = df.query(QueryYYYY, engine = 'python')
     QueryPOC = df.query(QueryOnline4, engine = 'python')
 
     # Get the OAS Count
@@ -1848,6 +2050,9 @@ for file in abs_pending_excel_files:
     CountQueryT = len(Query20)
     CountQueryU = len(Query21)
     CountQueryV = len(Query22)
+    CountQueryW = len(Query23)
+    CountQueryX = len(Query24)
+    CountQueryY = len(Query25)
     CountQueryOnline = len(QueryPO)
 
     # Get the OAS Count
@@ -1873,6 +2078,9 @@ for file in abs_pending_excel_files:
     CountQueryTT = len(Query20A)
     CountQueryUU = len(Query21A)
     CountQueryVV = len(Query22A)
+    CountQueryWW = len(Query23A)
+    CountQueryXX = len(Query24A)
+    CountQueryYY = len(Query25A)
     CountQueryOnline2 = len(QueryPOA)
 
     # Get the OAS Count
@@ -1898,6 +2106,9 @@ for file in abs_pending_excel_files:
     CountQueryTTT = len(Query20B)
     CountQueryUUU = len(Query21B)
     CountQueryVVV = len(Query22B)
+    CountQueryWWW = len(Query23B)
+    CountQueryXXX = len(Query24B)
+    CountQueryYYY = len(Query25B)
     CountQueryOnline3 = len(QueryPOB)
 
     # Get the OAS Count
@@ -1923,6 +2134,9 @@ for file in abs_pending_excel_files:
     CountQueryTTTT = len(Query20C)
     CountQueryUUUU = len(Query21C)
     CountQueryVVVV = len(Query22C)
+    CountQueryWWWW = len(Query23C)
+    CountQueryXXXX = len(Query24C)
+    CountQueryYYYY = len(Query25C)
     CountQueryOnline4 = len(QueryPOC)
 
     # Store the file name and OAS Count in the DataFrame
@@ -1948,6 +2162,9 @@ for file in abs_pending_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch1, 'Count': CountQueryT, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch1, 'Count': CountQueryU, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch1, 'Count': CountQueryV, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch1, 'Count': CountQueryW, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch1, 'Count': CountQueryX, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch1, 'Count': CountQueryY, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreA, 'Batch': Batch2, 'Count': CountQueryAA, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
@@ -1972,6 +2189,9 @@ for file in abs_pending_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch2, 'Count': CountQueryTT, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch2, 'Count': CountQueryUU, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch2, 'Count': CountQueryVV, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch2, 'Count': CountQueryWW, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch2, 'Count': CountQueryXX, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch2, 'Count': CountQueryYY, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreA, 'Batch': Batch3, 'Count': CountQueryAAA, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
@@ -1996,6 +2216,9 @@ for file in abs_pending_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch3, 'Count': CountQueryTTT, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch3, 'Count': CountQueryUUU, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch3, 'Count': CountQueryVVV, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch3, 'Count': CountQueryWWW, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch3, 'Count': CountQueryXXX, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch3, 'Count': CountQueryYYY, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreA, 'Batch': Batch4, 'Count': CountQueryAAAA, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
@@ -2020,6 +2243,9 @@ for file in abs_pending_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch4, 'Count': CountQueryTTTT, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch4, 'Count': CountQueryUUUU, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch4, 'Count': CountQueryVVVV, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch4, 'Count': CountQueryWWWW, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch4, 'Count': CountQueryXXXX, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch4, 'Count': CountQueryYYYY, 'Type': DataType2, 'Conversion Status': ConvertFalse}, ignore_index=True)
 
 for file in abs_outstanding_excel_files:
     # Read the Excel file
@@ -2048,6 +2274,9 @@ for file in abs_outstanding_excel_files:
     Query20 = df.query(QueryT, engine = 'python')
     Query21 = df.query(QueryU, engine = 'python')
     Query22 = df.query(QueryV, engine = 'python')
+    Query23 = df.query(QueryW, engine = 'python')
+    Query24 = df.query(QueryX, engine = 'python')
+    Query25 = df.query(QueryY, engine = 'python')
     QueryPO = df.query(QueryOnline, engine = 'python')
 
     # Dataframe Queries
@@ -2073,6 +2302,9 @@ for file in abs_outstanding_excel_files:
     Query20A = df.query(QueryTT, engine = 'python')
     Query21A = df.query(QueryUU, engine = 'python')
     Query22A = df.query(QueryVV, engine = 'python')
+    Query23A = df.query(QueryWW, engine = 'python')
+    Query24A = df.query(QueryXX, engine = 'python')
+    Query25A = df.query(QueryYY, engine = 'python')
     QueryPOA = df.query(QueryOnline2, engine = 'python')
 
     # Dataframe Queries
@@ -2098,6 +2330,9 @@ for file in abs_outstanding_excel_files:
     Query20B = df.query(QueryTTT, engine = 'python')
     Query21B = df.query(QueryUUU, engine = 'python')
     Query22B = df.query(QueryVVV, engine = 'python')
+    Query23B = df.query(QueryWWW, engine = 'python')
+    Query24B = df.query(QueryXXX, engine = 'python')
+    Query25B = df.query(QueryYYY, engine = 'python')
     QueryPOB = df.query(QueryOnline3, engine = 'python')
 
     # Dataframe Queries
@@ -2123,6 +2358,9 @@ for file in abs_outstanding_excel_files:
     Query20C = df.query(QueryTTTT, engine = 'python')
     Query21C = df.query(QueryUUUU, engine = 'python')
     Query22C = df.query(QueryVVVV, engine = 'python')
+    Query23C = df.query(QueryWWWW, engine = 'python')
+    Query24C = df.query(QueryXXXX, engine = 'python')
+    Query25C = df.query(QueryYYYY, engine = 'python')
     QueryPOC = df.query(QueryOnline4, engine = 'python')
 
     # Get the OAS Count
@@ -2148,6 +2386,9 @@ for file in abs_outstanding_excel_files:
     CountQueryT = len(Query20)
     CountQueryU = len(Query21)
     CountQueryV = len(Query22)
+    CountQueryW = len(Query23)
+    CountQueryX = len(Query24)
+    CountQueryY = len(Query25)
     CountQueryOnline = len(QueryPO)
 
     # Get the OAS Count
@@ -2173,6 +2414,9 @@ for file in abs_outstanding_excel_files:
     CountQueryTT = len(Query20A)
     CountQueryUU = len(Query21A)
     CountQueryVV = len(Query22A)
+    CountQueryWW = len(Query23A)
+    CountQueryXX = len(Query24A)
+    CountQueryYY = len(Query25A)
     CountQueryOnline2 = len(QueryPOA)
 
     # Get the OAS Count
@@ -2198,6 +2442,9 @@ for file in abs_outstanding_excel_files:
     CountQueryTTT = len(Query20B)
     CountQueryUUU = len(Query21B)
     CountQueryVVV = len(Query22B)
+    CountQueryWWW = len(Query23B)
+    CountQueryXXX = len(Query24B)
+    CountQueryYYY = len(Query25B)
     CountQueryOnline3 = len(QueryPOB)
 
     # Get the OAS Count
@@ -2223,6 +2470,9 @@ for file in abs_outstanding_excel_files:
     CountQueryTTTT = len(Query20C)
     CountQueryUUUU = len(Query21C)
     CountQueryVVVV = len(Query22C)
+    CountQueryWWWW = len(Query23C)
+    CountQueryXXXX = len(Query24C)
+    CountQueryYYYY = len(Query25C)
     CountQueryOnline4 = len(QueryPOC)
 
     # Store the file name and OAS Count in the DataFrame
@@ -2248,6 +2498,9 @@ for file in abs_outstanding_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch1, 'Count': CountQueryT, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch1, 'Count': CountQueryU, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch1, 'Count': CountQueryV, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch1, 'Count': CountQueryW, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch1, 'Count': CountQueryX, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch1, 'Count': CountQueryY, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreA, 'Batch': Batch2, 'Count': CountQueryAA, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
@@ -2272,6 +2525,9 @@ for file in abs_outstanding_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch2, 'Count': CountQueryTT, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch2, 'Count': CountQueryUU, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch2, 'Count': CountQueryVV, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch2, 'Count': CountQueryWW, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch2, 'Count': CountQueryXX, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch2, 'Count': CountQueryYY, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreA, 'Batch': Batch3, 'Count': CountQueryAAA, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
@@ -2296,6 +2552,9 @@ for file in abs_outstanding_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch3, 'Count': CountQueryTTT, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch3, 'Count': CountQueryUUU, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch3, 'Count': CountQueryVVV, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch3, 'Count': CountQueryWWW, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch3, 'Count': CountQueryXXX, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch3, 'Count': CountQueryYYY, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreA, 'Batch': Batch4, 'Count': CountQueryAAAA, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
@@ -2320,6 +2579,9 @@ for file in abs_outstanding_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch4, 'Count': CountQueryTTTT, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch4, 'Count': CountQueryUUUU, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch4, 'Count': CountQueryVVVV, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch4, 'Count': CountQueryWWWW, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch4, 'Count': CountQueryXXXX, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch4, 'Count': CountQueryYYYY, 'Type': DataType2, 'Scan Status': ScanFalse}, ignore_index=True)
 
 for file in abs_converted_excel_files:
     # Read the Excel file
@@ -2348,6 +2610,9 @@ for file in abs_converted_excel_files:
     Query20 = df.query(QueryT, engine = 'python')
     Query21 = df.query(QueryU, engine = 'python')
     Query22 = df.query(QueryV, engine = 'python')
+    Query23 = df.query(QueryW, engine = 'python')
+    Query24 = df.query(QueryX, engine = 'python')
+    Query25 = df.query(QueryY, engine = 'python')
     QueryPO = df.query(QueryOnline, engine = 'python')
 
     # Dataframe Queries
@@ -2373,6 +2638,9 @@ for file in abs_converted_excel_files:
     Query20A = df.query(QueryTT, engine = 'python')
     Query21A = df.query(QueryUU, engine = 'python')
     Query22A = df.query(QueryVV, engine = 'python')
+    Query23A = df.query(QueryWW, engine = 'python')
+    Query24A = df.query(QueryXX, engine = 'python')
+    Query25A = df.query(QueryYY, engine = 'python')
     QueryPOA = df.query(QueryOnline2, engine = 'python')
 
     # Dataframe Queries
@@ -2398,6 +2666,9 @@ for file in abs_converted_excel_files:
     Query20B = df.query(QueryTTT, engine = 'python')
     Query21B = df.query(QueryUUU, engine = 'python')
     Query22B = df.query(QueryVVV, engine = 'python')
+    Query23B = df.query(QueryWWW, engine = 'python')
+    Query24B = df.query(QueryXXX, engine = 'python')
+    Query25B = df.query(QueryYYY, engine = 'python')
     QueryPOB = df.query(QueryOnline3, engine = 'python')
 
     # Dataframe Queries
@@ -2423,6 +2694,9 @@ for file in abs_converted_excel_files:
     Query20C = df.query(QueryTTTT, engine = 'python')
     Query21C = df.query(QueryUUUU, engine = 'python')
     Query22C = df.query(QueryVVVV, engine = 'python')
+    Query23C = df.query(QueryWWWW, engine = 'python')
+    Query24C = df.query(QueryXXXX, engine = 'python')
+    Query25C = df.query(QueryYYYY, engine = 'python')
     QueryPOC = df.query(QueryOnline4, engine = 'python')
 
     # Get the OAS Count
@@ -2448,6 +2722,9 @@ for file in abs_converted_excel_files:
     CountQueryT = len(Query20)
     CountQueryU = len(Query21)
     CountQueryV = len(Query22)
+    CountQueryW = len(Query23)
+    CountQueryX = len(Query24)
+    CountQueryY = len(Query25)
     CountQueryOnline = len(QueryPO)
 
     # Get the OAS Count
@@ -2473,6 +2750,9 @@ for file in abs_converted_excel_files:
     CountQueryTT = len(Query20A)
     CountQueryUU = len(Query21A)
     CountQueryVV = len(Query22A)
+    CountQueryWW = len(Query23A)
+    CountQueryXX = len(Query24A)
+    CountQueryYY = len(Query25A)
     CountQueryOnline2 = len(QueryPOA)
 
     # Get the OAS Count
@@ -2498,6 +2778,9 @@ for file in abs_converted_excel_files:
     CountQueryTTT = len(Query20B)
     CountQueryUUU = len(Query21B)
     CountQueryVVV = len(Query22B)
+    CountQueryWWW = len(Query23B)
+    CountQueryXXX = len(Query24B)
+    CountQueryYYY = len(Query25B)
     CountQueryOnline3 = len(QueryPOB)
 
     # Get the OAS Count
@@ -2523,6 +2806,9 @@ for file in abs_converted_excel_files:
     CountQueryTTTT = len(Query20C)
     CountQueryUUUU = len(Query21C)
     CountQueryVVVV = len(Query22C)
+    CountQueryWWWW = len(Query23C)
+    CountQueryXXXX = len(Query24C)
+    CountQueryYYYY = len(Query25C)
     CountQueryOnline4 = len(QueryPOC)
 
     # Store the file name and OAS Count in the DataFrame
@@ -2548,6 +2834,9 @@ for file in abs_converted_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch1, 'Count': CountQueryT, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch1, 'Count': CountQueryU, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch1, 'Count': CountQueryV, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch1, 'Count': CountQueryW, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch1, 'Count': CountQueryX, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch1, 'Count': CountQueryY, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreA, 'Batch': Batch2, 'Count': CountQueryAA, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
@@ -2572,6 +2861,9 @@ for file in abs_converted_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch2, 'Count': CountQueryTT, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch2, 'Count': CountQueryUU, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch2, 'Count': CountQueryVV, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch2, 'Count': CountQueryWW, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch2, 'Count': CountQueryXX, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch2, 'Count': CountQueryYY, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreA, 'Batch': Batch3, 'Count': CountQueryAAA, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
@@ -2596,6 +2888,9 @@ for file in abs_converted_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch3, 'Count': CountQueryTTT, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch3, 'Count': CountQueryUUU, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch3, 'Count': CountQueryVVV, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch3, 'Count': CountQueryWWW, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch3, 'Count': CountQueryXXX, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch3, 'Count': CountQueryYYY, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
 
     # Store the file name and OAS Count in the DataFrame
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreA, 'Batch': Batch4, 'Count': CountQueryAAAA, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
@@ -2620,6 +2915,9 @@ for file in abs_converted_excel_files:
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreT, 'Batch': Batch4, 'Count': CountQueryTTTT, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreU, 'Batch': Batch4, 'Count': CountQueryUUUU, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
     file_counts = file_counts.append({'File Name': file, 'Centre': CentreV, 'Batch': Batch4, 'Count': CountQueryVVVV, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreW, 'Batch': Batch4, 'Count': CountQueryWWWW, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreX, 'Batch': Batch4, 'Count': CountQueryXXXX, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
+    file_counts = file_counts.append({'File Name': file, 'Centre': CentreY, 'Batch': Batch4, 'Count': CountQueryYYYY, 'Type': DataType2, 'Conversion Status': ConvertTrue}, ignore_index=True)
 
 # Write the file counts to a new Excel file
 file_counts.to_excel('z_Final.xlsx', index=False)
