@@ -1,22 +1,16 @@
 import subprocess
 
-print("========== Program is running, please wait ==========")
+print("========== INFO: Program is running, please wait... ==========")
 
 # Run other Python files
 try:
     subprocess.run(["python", "1_Franchisor_OAS.py"])
-    print("========== 1_Franchisor_OAS.py ran successfully ==========")
     subprocess.run(["python", "2_Franchisee_OAS.py"])
-    print("========== 2_Franchisee_OAS.py ran successfully ==========")
     subprocess.run(["python", "3_Franchisor_Absentees.py"])
-    print("========== 3_Franchisor_Absentees.py ran successfully ==========")
     subprocess.run(["python", "4_Franchisee_Absentees.py"])
-    print("========== 4_Franchisee_Absentees.py ran successfully ==========")
     subprocess.run(["python", "5_PO_OAS.py"])
-    print("========== 5_PO_OAS.py ran successfully ==========")
     subprocess.run(["python", "6_Final.py"])
-    print("========== 6_Final.py ran successfully ==========")
 except:
-    print("Error running the program!")
+    print("========== ERROR: Something went wrong! ==========")
 
-print("========== All Python files ran successfully! ==========")
+print("========== INFO: The program ran successfully! ==========")

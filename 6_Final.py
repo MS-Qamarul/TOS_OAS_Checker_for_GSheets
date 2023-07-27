@@ -1,58 +1,50 @@
 import pandas as pd
-import os
 
-# Check and delete previous Excel file
-try:
-    # Pending Conversion
-    os.path.exists("./z_Final.xlsx")
-    os.remove("./z_Final.xlsx")
-    print("A previous version of z_Final detected! Deleting file...")
-except:
-    print("Proceed to export data...")
+print("========== STEP 6: Process all OAS data ==========")
 
 # Define the list of Excel files
 scanned_excel_files = [
-    'Scanned OAS Franchisee.xlsx',
-    'Scanned OAS Franchisor.xlsx',
-    'PO Scanned OAS.xlsx',
+    'Scanned_OAS_Franchisee.xlsx',
+    'Scanned_OAS_Franchisor.xlsx',
+    'Scanned_OAS_Online_Class.xlsx',
 ]
 
 pending_excel_files = [
-    'Pending Conversion Franchisee.xlsx',
-    'Pending Conversion Franchisor.xlsx',
-    'PO Pending Conversion.xlsx',
+    'Pending_Conversion_Franchisee.xlsx',
+    'Pending_Conversion_Franchisor.xlsx',
+    'Pending_Conversion_Online_Class.xlsx',
 ]
 
 outstanding_excel_files = [
-    'Outstanding Scans Franchisee.xlsx',
-    'Outstanding Scans Franchisor.xlsx',
-    'PO Outstanding Scans.xlsx',
+    'Outstanding_Scans_Franchisee.xlsx',
+    'Outstanding_Scans_Franchisor.xlsx',
+    'Outstanding_Scans_Online_Class.xlsx',
 ]
 
 converted_excel_files = [
-    'Converted OAS Franchisee.xlsx',
-    'Converted OAS Franchisor.xlsx',
-    'PO Converted OAS.xlsx',
+    'Converted_OAS_Franchisee.xlsx',
+    'Converted_OAS_Franchisor.xlsx',
+    'Converted_OAS_Online_Class.xlsx',
 ]
 
 abs_scanned_excel_files = [
-    'ABS Scanned Franchisee.xlsx',
-    'ABS Scanned Franchisor.xlsx',
+    'Scanned_OAS_Franchisee_ABS.xlsx',
+    'Scanned_OAS_Franchisor_ABS.xlsx',
 ]
 
 abs_pending_excel_files = [
-    'ABS Pending Conversion Franchisee.xlsx',
-    'ABS Pending Conversion Franchisor.xlsx',
+    'Pending_Conversion_Franchisee_ABS.xlsx',
+    'Pending_Conversion_Franchisor_ABS.xlsx',
 ]
 
 abs_outstanding_excel_files = [
-    'ABS Outstanding Scans Franchisee.xlsx',
-    'ABS Outstanding Scans Franchisor.xlsx',
+    'Outstanding_Scans_Franchisee_ABS.xlsx',
+    'Outstanding_Scans_Franchisor_ABS.xlsx',
 ]
 
 abs_converted_excel_files = [
-    'ABS Converted OAS Franchisee.xlsx',
-    'ABS Converted OAS Franchisor.xlsx',
+    'Converted_OAS_Franchisee_ABS.xlsx',
+    'Converted_OAS_Franchisor_ABS.xlsx',
 ]
 
 # Scan Status
@@ -86,7 +78,8 @@ query_batch3_code = ' or '.join([f'`Class: Class Code`.str.contains("{code+year}
 query_batch4_code = ' or '.join([f'`Class: Class Code`.str.contains("{code+year}-S1S") or `Class: Class Code`.str.contains("{code+year}-S2S") or `Class: Class Code`.str.contains("{code+year}-S3S")' for code in batch_codes])
 
 # Create a DataFrame to store the counts
-file_counts = pd.DataFrame(columns=['File Name', 'Centre', 'Batch', 'Count', 'Type', 'Scan Status', 'Conversion Status'])
+file_scanned = pd.DataFrame(columns=['File Name', 'Centre', 'Batch', 'Count', 'Type', 'Scan Status'])
+file_converted = pd.DataFrame(columns=['File Name', 'Centre', 'Batch', 'Count', 'Type', 'Conversion Status'])
 
 # Create a list to store the data for each row
 scanned_data_rows = []
@@ -369,7 +362,7 @@ for file in abs_converted_excel_files:
             abs_converted_data_rows.append({'File Name': file, 'Centre': code, 'Batch': Batch4, 'Count': count_query_batch4_code, 'Type': DataType2, 'Conversion Status': ConvertTrue})
 
 # Iterate Excel files - Pending Conversion Absentees
-for file in abs_converted_excel_files:
+for file in abs_pending_excel_files:
     # Read the Excel file
     df = pd.read_excel(file)
 
@@ -402,15 +395,20 @@ for file in abs_converted_excel_files:
         if code != "ED":
             abs_pending_data_rows.append({'File Name': file, 'Centre': code, 'Batch': Batch4, 'Count': count_query_batch4_code, 'Type': DataType2, 'Conversion Status': ConvertFalse})
 
-# Concatenate the data rows into the file_counts DataFrame
-file_counts = pd.concat([file_counts, pd.DataFrame(scanned_data_rows)], ignore_index=True)
-file_counts = pd.concat([file_counts, pd.DataFrame(outstanding_data_rows)], ignore_index=True)
-file_counts = pd.concat([file_counts, pd.DataFrame(converted_data_rows)], ignore_index=True)
-file_counts = pd.concat([file_counts, pd.DataFrame(pending_data_rows)], ignore_index=True)
-file_counts = pd.concat([file_counts, pd.DataFrame(abs_scanned_data_rows)], ignore_index=True)
-file_counts = pd.concat([file_counts, pd.DataFrame(abs_outstanding_data_rows)], ignore_index=True)
-file_counts = pd.concat([file_counts, pd.DataFrame(abs_converted_data_rows)], ignore_index=True)
-file_counts = pd.concat([file_counts, pd.DataFrame(abs_pending_data_rows)], ignore_index=True)
+# Concatenate the data rows into the file_scanned DataFrame
+file_scanned = pd.concat([file_scanned, pd.DataFrame(scanned_data_rows)], ignore_index=True)
+file_scanned = pd.concat([file_scanned, pd.DataFrame(outstanding_data_rows)], ignore_index=True)
+file_converted = pd.concat([file_converted, pd.DataFrame(converted_data_rows)], ignore_index=True)
+file_converted = pd.concat([file_converted, pd.DataFrame(pending_data_rows)], ignore_index=True)
+file_scanned = pd.concat([file_scanned, pd.DataFrame(abs_scanned_data_rows)], ignore_index=True)
+file_scanned = pd.concat([file_scanned, pd.DataFrame(abs_outstanding_data_rows)], ignore_index=True)
+file_converted = pd.concat([file_converted, pd.DataFrame(abs_converted_data_rows)], ignore_index=True)
+file_converted = pd.concat([file_converted, pd.DataFrame(abs_pending_data_rows)], ignore_index=True)
 
-# Write the file_counts DataFrame to a new Excel file
-file_counts.to_excel('z_Final.xlsx', sheet_name='Scanned', index=False)
+# Create ExcelWriter object
+with pd.ExcelWriter("Z_Final_Data.xlsx") as writer:
+    # Write each DataFrame to a separate sheet in the same Excel file
+    file_scanned.to_excel(writer, sheet_name="Scanned OAS")
+    file_converted.to_excel(writer, sheet_name="Outstanding OAS")
+
+print("Data written to Z_Final_Data.xlsx with multiple sheets!")

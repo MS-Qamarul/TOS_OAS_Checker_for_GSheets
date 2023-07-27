@@ -1,8 +1,9 @@
 import openpyxl
 import pandas as pd
 import requests
-import os
 from io import BytesIO
+
+print("========== STEP 1: Process Franchisor OAS data ==========")
 
 # Read from Google Sheets without API
 spreadsheetId = "1b2EhkM9R9xlCiI369SYGxrkxcync5VtbMUPZun_hQr0" # Spreadsheet ID to change every QCP period
@@ -11,42 +12,31 @@ res = requests.get(url)
 data = BytesIO(res.content)
 xlsx = openpyxl.load_workbook(filename=data)
 
+extension = ".xlsx"
+
 df = pd.concat(pd.read_excel(data, sheet_name=None), ignore_index=True)
-print("Successfully read data from sheet...")
+
+# Common conditions for DataFrame queries
+not_scanned_condition = 'Scanned == False & Teacher == Teacher'
+scanned_condition = 'Scanned == True & Teacher == Teacher'
+not_converted_condition = '`Date of IT conversion to Verificare` != `Date of IT conversion to Verificare`'
+converted_condition = '`Date of IT conversion to Verificare` == `Date of IT conversion to Verificare`'
 
 # Dataframe queries
-PendingConversion = df.query('Scanned == True & Teacher == Teacher & `Date of IT conversion to Verificare` != `Date of IT conversion to Verificare`')
-OutstandingScans = df.query('Scanned == False & Teacher == Teacher')
-ScannedOAS = df.query('Scanned == True & Teacher == Teacher')
-ConvertedOAS = df.query('Scanned == True & Teacher == Teacher & `Date of IT conversion to Verificare` == `Date of IT conversion to Verificare`')
-
-# Check if a previous version of XLSX files exists
-try:
-    # Pending Conversion
-    os.path.exists("./Pending Conversion Franchisor.xlsx")
-    os.remove("./Pending Conversion Franchisor.xlsx")
-    print("A previous version of Pending Conversion Franchisor.xlsx detected! Deleting file...")
-    # Outstanding Scans
-    os.path.exists("./Outstanding Scans Franchisor.xlsx")
-    os.remove("./Outstanding Scans Franchisor.xlsx")
-    print("A previous version of Outstanding Scans Franchisor.xlsx detected! Deleting file...")
-    # Scanned OAS
-    os.path.exists("./Scanned OAS Franchisor.xlsx")
-    os.remove("./Scanned OAS Franchisor.xlsx")
-    print("A previous version of Scanned OAS Franchisor.xlsx detected! Deleting file...")
-    # Converted OAS
-    os.path.exists("./Converted OAS Franchisor.xlsx")
-    os.remove("./Converted OAS Franchisor.xlsx")
-    print("A previous version of Converted OAS Franchisor.xlsx detected! Deleting file...")
-except:
-    print("Proceed to export data...")
+PendingConversion = df.query(f'{scanned_condition} & {not_converted_condition}')
+OutstandingScans = df.query(f'{not_scanned_condition}')
+ScannedOAS = df.query(f'{scanned_condition}')
+ConvertedOAS = df.query(f'{scanned_condition} & {converted_condition}')
 
 # Write to XLSX file on local device in working directory
-PendingConversion.to_excel("Pending Conversion Franchisor.xlsx")
-print("Pending Conversion Franchisor.xlsx created!")
-OutstandingScans.to_excel("Outstanding Scans Franchisor.xlsx")
-print("Outstanding Scans Franchisor.xlsx created!")
-ScannedOAS.to_excel("Scanned OAS Franchisor.xlsx")
-print("Scanned OAS Franchisor.xlsx created!")
-ConvertedOAS.to_excel("Converted OAS Franchisor.xlsx")
-print("Converted OAS Franchisor.xlsx created!")
+PendingConversion.to_excel("Pending_Conversion_Franchisor" + extension, index=False)
+print("CREATE: Pending_Conversion_Franchisor" + extension)
+
+OutstandingScans.to_excel("Outstanding_Scans_Franchisor" + extension, index=False)
+print("CREATE: Outstanding_Scans_Franchisor" + extension)
+
+ScannedOAS.to_excel("Scanned_OAS_Franchisor" + extension, index=False)
+print("CREATE: Scanned_OAS_Franchisor" + extension)
+
+ConvertedOAS.to_excel("Converted_OAS_Franchisor" + extension, index=False)
+print("CREATE: Converted_OAS_Franchisor" + extension)
